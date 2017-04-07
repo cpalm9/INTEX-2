@@ -1,0 +1,6 @@
+*.log
+*.pyc
+.DS_STORE
+.cached_templates/
+__pycache__/
+.sass-cache/
