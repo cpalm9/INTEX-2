@@ -1,0 +1,172 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+
+## imports
+<%! from django_mako_plus import get_template_css, get_template_js %>
+
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>
+
+    <title><%block name="head_title">FOMO Base Page</%block></title>
+
+    ## add any site-wide scripts or CSS here; for example, jquery:
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/homepage/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/homepage/media/jquery.datetimepicker.full.js"></script>
+    <script type="text/javascript" src="/static/homepage/scripts/jquery-2.1.1.min.js"></script>
+
+    <link rel="stylesheet" href="${ STATIC_URL }homepage/media/bootstrap/css/goldbootstrap.css">
+    <link rel="stylesheet" href="${ STATIC_URL }homepage/media/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="${ STATIC_URL }homepage/media/jquery.datetimepicker.min.css"/>
+    <link rel="shortcut icon" type="image/png" href="/static/homepage/media/treble_clef.png" alt="Treble Clef"/>
+
+    <link href='//fonts.googleapis.com/css?family=Julius Sans One' rel='stylesheet'>
+
+    ## render the css with the same name as this page
+    ${ get_template_css(self, request, context) }
+
+</head>
+
+
+<!--###################### Head Area ############################-->
+
+
+<!--header maintenance div-->
+
+    <%block name="maintenance">
+
+    </%block>
+
+
+<!-- header-message use bootstrap-->
+    <%block name="alert_block">
+
+    </%block>
+
+
+    <%block name="header">
+        <header class="text-center">
+            <div class="container-fluid">
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <div id="headerstuff">
+                            <div id="header_icon">
+                                <img src="${ STATIC_URL }homepage/media/treble_clef.png" alt="Funky treble clef"/>
+                            </div>
+                            <div id="header_icon">
+                                <h1>Welcome to FOMO!</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </%block>
+
+<!-- ################### Navbar area ###########################-->
+
+<div id="navbar" class="nav navbar">
+    <nav class="navbar-default navbar" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/index/"><img src="/static/homepage/media/treble_clef.png" width="60" height="50"  href="/index/"></a>
+
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <%block name="navbar_basic">
+                        <li class="${ 'active' if request.dmp_router_page == 'about' else '' }"><a href="/about/">About</a>
+                        </li>
+                        <li class="${ 'active' if request.dmp_router_page == 'contact' else '' }"><a href="/contact/">Contact</a>
+                        </li>
+                        <li class="${ 'active' if request.dmp_router_page == 'FAQ' else '' }"><a href="/FAQ/">FAQ</a></li>
+                        <li class="${ 'active' if request.dmp_router_page == 'terms' else '' }"><a href="/terms/">Terms</a>
+                        </li>
+                        <li class="${ 'active' if request.dmp_router_page == 'sections' else '' }"><a href="/sections/">Sections</a>
+                        </li>
+                    </%block>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    %if user.is_authenticated:
+                        <li class="${ 'active' if request.dmp_router_page == 'products' else '' }"><a href="/manager/products/">Products</a></li>
+                        <li class="${ 'active' if request.dmp_router_page == 'users' else '' }"><a href="/manager/users/">Users</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome ${ request.user.first_name }
+                                <span class="caret"></span></a>
+                            <ul class="dropdown dropdown-menu">
+                                <li><a href="/account/editAccount/${ request.user.id }/">My Account</a></li>
+                                <li><a href="/account/editPassword/${ request.user.id }/">Change Password</a></li>
+                                <li><a href="/account/logout/">Logout</a></li>
+                            </ul>
+                        </li>
+                    %else:
+                        <li><a href="/account/signup/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="/account/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    %endif
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+<!--########################## Body Area #######################-->
+
+<body>
+<%block name = "blockbody">
+<div id="above_columns" class="container-fluid">
+    <div class="row text-center">
+        <%block name="above_columns">
+
+        </%block>
+    </div>
+</div>
+
+
+<div id="main" class="container-fluid">
+    <div class="row text-center">
+        <div class="col-md-3">
+            <%block name="left_column">
+
+            </%block>
+        </div>
+        <div class="col-md-6">
+            <div id="content">
+                <%block name="content">
+                    Site content goes here in sub-templates.
+                </%block>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <%block name="right_column">
+
+            </%block>
+        </div>
+    </div>
+</div>
+
+    ## render the JS with the same name as this page
+        ${ get_template_js(self, request, context) }
+</%block>
+</body>
+
+<footer>
+    <div class="navbar navbar-default navbar-fixed-bottom navbar">
+        <div class="container">
+            <%! from datetime import datetime %>
+            <p class="navbar-text pull-left">© ${ datetime.now().year } - Site Built By Sean Burnham</p>
+        </div>
+    </div>
+</footer>
+
+</html>

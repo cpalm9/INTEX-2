@@ -1,0 +1,48 @@
+header {
+    background-color: #5bc0de;
+    font-family: 'Julius Sans One';
+}
+
+#bodyContainer {
+    background-image:url("/static/homepage/media/beginner.jpeg");
+    width:100%;
+    height: 650px;
+    background-size:cover;
+    background-position: 50% 50%;
+
+}
+
+#title{
+    margin-top: 150px;
+}
+
+#easy{
+    margin-bottom: 25px;
+}
+
+.btn-circle.btn-xl {
+    width: 240px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 25px;
+    font-family: 'Julius Sans One';
+}
+
+#bar{
+    background-color: gray;
+    height: 40px;
+}
+
+.instruments{
+    width: 300px;
+    height: 300px;
+}
+
+.bottomArea{
+    margin-bottom: 100px;
+    margin-top: 20px;
+}
+
+.bottomArea p{
+    margin-top: 10px;
+}

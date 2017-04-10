@@ -1,0 +1,88 @@
+
+<%inherit file="app_base.htm" />
+
+<%! from account import models as amod %>
+
+<%block name="blockbody">
+    <div class="content text-center">
+      <h1>Users</h1>
+
+        ##         birth_date = models.DateField(null=True)
+##     phone = models.TextField(max_length = 14)
+##     address = models.TextField()
+##     city = models.TextField()
+##     state = models.CharField(max_length = 2)
+##     zipcode = models.TextField()
+
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <table class="table table-striped text-left">
+                <tr>
+                    <th>Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Birthday</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zipcode</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+
+            % for u in users:
+
+                <tr>
+                    <td>${ u.username }</td>
+                    <td>${ u.first_name }</td>
+                    <td>${ u.last_name }</td>
+                    <td>${ u.birth_date }</td>
+                    <td>${ u.address }</td>
+                    <td>${ u.city }</td>
+                    <td>${ u.state }</td>
+                    <td>${ u.zipcode }</td>
+                    <td>${ u.phone }</td>
+                    <td>${ u.email }</td>
+                    <td>
+                        <a href="/manager/user/${ u.id }/">Edit Info</a>
+                        |
+                        <a href="/manager/editPassword/${ u.id }/">Edit Password</a>
+                        |
+                        <a href="/manager/user.delete/${ u.id }/" class="deleteLink">Delete</a>
+                    </td>
+                </tr>
+
+            % endfor
+
+            </table>
+
+             <a href="/manager/user.create/" class="btn btn-primary" role="button">New User</a>
+
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="usermyModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLabel">Wait up!!!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this?
+          </div>
+          <div class="modal-footer">
+            <a id="useryesBtn" href="/manager/user.delete/${ u.id }/" class="btn btn-danger">Yes</a>
+            <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</%block>

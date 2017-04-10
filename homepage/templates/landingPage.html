@@ -1,0 +1,109 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+
+## imports
+<%! from django_mako_plus import get_template_css, get_template_js %>
+
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>
+
+    <title><%block name="head_title">FOMO Landing Page</%block></title>
+
+    ## add any site-wide scripts or CSS here; for example, jquery:
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/homepage/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/homepage/media/jquery.datetimepicker.full.js"></script>
+    <script type="text/javascript" src="/static/homepage/scripts/jquery-2.1.1.min.js"></script>
+
+    <link rel="stylesheet" href="${ STATIC_URL }homepage/media/bootstrap/css/goldbootstrap.css">
+    <link rel="stylesheet" href="${ STATIC_URL }homepage/media/bootstrap/css/bootstrap.css">
+    <link rel="shortcut icon" type="image/png" href="/static/homepage/media/treble_clef.png" alt="Treble Clef"/>
+
+    <link href='//fonts.googleapis.com/css?family=Julius Sans One' rel='stylesheet'>
+
+    ## render the css with the same name as this page
+    ${ get_template_css(self, request, context) }
+
+</head>
+
+
+<!--###################### Head Area ############################-->
+
+<header>
+     <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="headerstuff">
+                        <div>
+                            <h4>Family Oriented Music Organization</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</header>
+
+<!--########################## Body Area #######################-->
+
+<body>
+    <div class="container text-center" id="bodyContainer">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <h1 id="title">Great Beginner Instruments</h1>
+            <p id="easy">The easiest way to get started in the music world with instruments at the best price.</p>
+
+             <div id="btn_container">
+                 <a href="/" class="btn btn-warning btn-circle btn-xl" role="button">Shop Instruments <span class="glyphicon glyphicon-triangle-right"></span></a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid" id="bar">
+
+    </div>
+
+
+    <div class="container-fluid bottomArea">
+            <div class="row text-center">
+
+                <h2>We offer a wide range of starter instruments.</h2>
+
+                <div class="col-md-4" style="border-right-style: solid;">
+                    <img class="instruments" src="/static/homepage/media/acoustic.png">
+                    <p>Starter Acoustic Guitar</p>
+                    <a href="/" class="btn btn-info btn-circle" role="button">Shop Guitars <span class="glyphicon glyphicon-triangle-right"></span></a>
+                </div>
+                <div class="col-md-4">
+                    <img class="instruments" src="/static/homepage/media/trumpet.png">
+                    <p>Starter Acoustic Trumpet</p>
+                    <a href="/" class="btn btn-info btn-circle" role="button">Shop Trumpets <span class="glyphicon glyphicon-triangle-right"></span></a>
+                </div>
+                <div class="col-md-4" style="border-left-style: solid;">
+                    <img class="instruments" src="/static/homepage/media/sax.png">
+                    <p>Starter Acoustic Saxophone</p>
+                    <a href="/" class="btn btn-info btn-circle" role="button">Shop Saxophones <span class="glyphicon glyphicon-triangle-right"></span></a>
+                </div>
+            </div>
+    </div>
+
+
+
+    ## render the JS with the same name as this page
+        ${ get_template_js(self, request, context) }
+
+</body>
+
+<footer>
+    <div class="navbar navbar-default navbar-fixed-bottom navbar">
+        <div class="container">
+            <%! from datetime import datetime %>
+            <p class="navbar-text pull-left">© ${ datetime.now().year } - Site Built By Sean Burnham</p>
+        </div>
+    </div>
+</footer>
+
+</html>

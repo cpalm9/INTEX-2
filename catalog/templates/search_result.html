@@ -1,0 +1,26 @@
+<%inherit file="/homepage/templates/app_base.htm"/>
+
+<%! from catalog import models as cmod %>
+
+<%block name="content">
+    <div>
+        %for p in products:
+                <div class="Product">
+                    <div class="tile-image">
+                        <a href="/catalog/details/${ p.id }"><img src="/static/catalog/media/productImages/${p.name.replace(" ", "")}.png/"></a>
+                        <div class ="tile-text">
+                            <h3>${ p.name }</h3>
+                            <p>Category: ${ p.category }</p>
+                            <p>Sales Price: $${p.price}
+
+                            %if hasattr(p, 'serial_number'):
+                                <p>Serial Number: ${ p.serial_number if isinstance(p, cmod.UniqueProduct) or isinstance(p, cmod.RentalProduct) else '-'}</p>
+                            %endif
+                        </div>
+                    </div>
+                </div>
+            <hr>
+        %endfor
+    </div>
+</%block>
+
