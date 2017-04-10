@@ -5,12 +5,12 @@ from django.http import HttpResponseRedirect
 from django import forms
 from formlib.form import FormMixIn
 from django.contrib import messages
+from django.core.validators import validate_email
 
 
 
 @view_function
 def process_request(request):
-
     form = ContactForm(request)
 
     if form.is_valid():
@@ -43,14 +43,17 @@ class ContactForm(FormMixIn, forms.Form):
         parts = name.split()
         if len(parts) <= 1:
             raise forms.ValidationError('Please give you first and last name.')
+        # validate email
+        # validate_email(self.cleaned_data.get('email'))
 
 
         #return the value
-        return name
+        return self.cleaned_data
 
 
     def commit(self):
         # if all works out then do the work
         email = self.cleaned_data.get('email')
+        print(email)
 
 
