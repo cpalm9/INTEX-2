@@ -1,0 +1,20 @@
+.banner {
+	background:url(../media/manager.png) no-repeat 0px 0px;
+	background-size:cover;
+    min-height:700px;
+}
+
+ul {
+    color: white;
+}
+
+#user_menu {
+    padding-top:2%;
+    line-height: 175%;
+    
+}
+
+ul {
+    list-style-type: none;
+    font-size: 16px;
+}

@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import permission_required, login_required
 from django.http import HttpResponse, HttpResponseRedirect
 
 
-
 @view_function
 @login_required
 def process_request(request):
