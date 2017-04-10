@@ -1,0 +1,16 @@
+.banner {
+	background:url(../media/musician.png) no-repeat 0px 0px;
+	background-size:cover;
+    min-height:700px;
+}
+
+#user_menu {
+    padding-left: 5%;
+    padding-top:1%;
+    line-height: 175%;
+}
+
+ul {
+    list-style-type: none;
+    font-size: 16px;
+}

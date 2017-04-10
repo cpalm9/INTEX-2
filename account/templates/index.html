@@ -2,6 +2,23 @@
 
 <%block name="content">
     <div class="content">
-      <h3>Hello User that just logged in!</h3>
+        <div id="user_menu">
+          <ul>
+            <div class="container">
+              <div class="ftr-grids">
+                <div class="col-md-3 ftr-grid">
+                  <h4>Welcome, ${ user.first_name }!</h4>
+                    <ul>
+                      <li><a href="/account/editAccount/${ user.id }">Personal Informaion</a></li>
+                      <li><a href="/account/editPassword/${ user.id }">Update Password</a></li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+  
+      <div class="banner">
+      </div>
     </div>
 </%block>

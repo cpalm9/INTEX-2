@@ -35,15 +35,15 @@ def process_request(request):
         'user': user,
         'form': form,
     }
-    return dmp_render(request, 'editAccount.html', context)
+    return dmp_render(request, 'editPassword.html', context)
 
 
 class EditPasswordForm(FormMixIn, forms.Form):
 
     def init(self, user):
-        self.fields['old_password'] = forms.CharField(widget=forms.PasswordInput())
-        self.fields['new_password'] = forms.CharField(widget=forms.PasswordInput())
-        self.fields['new_password2'] = forms.CharField(widget=forms.PasswordInput())
+        self.fields['old_password'] = forms.CharField(label="Old Password", widget=forms.PasswordInput())
+        self.fields['new_password'] = forms.CharField(label="New Password", widget=forms.PasswordInput())
+        self.fields['new_password2'] = forms.CharField(label="Confirm Password", widget=forms.PasswordInput())
 
 
 

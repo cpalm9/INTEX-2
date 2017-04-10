@@ -36,15 +36,10 @@
     <!--<script>$(document).ready(function () {
         $(".memenu").memenu();
     });</script>-->
-    <script>
-        $(function () {
-            console.log('HEY')
-            
-            $('#modallogin_button').click(function () {
-                $.loadmodal('/account/login.modal/');
-            });
-        });
-    </script>
+    ## render the css with the same name as this page
+    ${ django_mako_plus.link_css(self) }
+    ## render the JS with the same name as this page
+    ${ django_mako_plus.link_js(self) }
     <!-- /start menu -->
 </head>
 <body>
