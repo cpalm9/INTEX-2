@@ -1,0 +1,55 @@
+<%inherit file="app_base.htm"/>
+
+<%! from catalog import models as cmod %>
+
+<%block name="content">
+
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+
+
+    <div class="midPanel">
+        <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h3 class="panel-title">Thank you for shopping with us!</h3>
+              </div>
+             <table class="table table-bordered text-center">
+              <thead>
+                <tr>
+                  <th class="col-md-1"><small>Subtotal:</small></th>
+                  <th class="col-md-1"><small>Tax:</small></th>
+                  <th class="col-md-2"><small>Shipping:</small></th>
+                  <th class="col-md-2"><small>Total:</small></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><small>$${ cmod.SaleItems.calc_subtotal() }</small></td>
+                  <td><small>$${ cmod.SaleItems.calc_tax() }</small></td>
+                  <td><small>$10</small></td>
+                  <td><small>$${ cmod.SaleItems.calc_total() }</small></td>
+                </tr>
+              </tbody>
+            </table>
+           </div>
+    </div>
+
+##     <table class="finance">
+##             <tr class="finStuff" style="text-align: right;">
+##                 <td>Subtotal: $${ cmod.SaleItems.calc_subtotal() }</td>
+##             </tr>
+##             <tr class="finStuff">
+##                 <td>Tax: $${ cmod.SaleItems.calc_tax() }</td>
+##             </tr>
+##             <tr class="finStuff">
+##                 <td style="border-bottom: solid;">Shipping: $10</td>
+##             </tr>
+##             <tr class="finStuff">
+##                 <td>Total: $${ cmod.SaleItems.calc_total() }</td>
+##             </tr>
+##     </table>
+
+
+   <div id="payment_form">
+       ${ form }
+   </div>
+</%block>

@@ -1,0 +1,41 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    margin-bottom: 25px;
+}
+
+
+.col-md-3{
+    background-color: gray;
+    height: 100vh;
+
+}
+
+header {
+    text-align: center;
+    font-size: 2.5em;
+
+}
+
+
+#header_icon > img {
+    height: 125px;
+}
+
+.navbar {
+    margin-bottom: 0!important;
+    margin: 0;
+}
+
+.alert{
+    width: 20%;
+    float: right;
+    position:absolute;
+    right: 0;
+    z-index: 999;
+}
+
+#above_columns{
+    background-color: forestgreen;
+}

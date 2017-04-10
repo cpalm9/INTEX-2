@@ -1,0 +1,28 @@
+<%inherit file="app_base.htm" />
+
+<title><%block name="head_title">Receipt Page</%block></title>
+
+<%block name="content">
+
+    <div>
+        <h1>
+            Thank you for your order ${ sale.user.first_name }!
+        </h1>
+
+        <table class="text-left">
+            <tr>
+                <td>Order Date: ${ sale.date }</td>
+            </tr>
+            <tr>
+                <td>Ship to: ${ sale.shipping_address }</td>
+            </tr>
+            <tr>
+                <td>Total Cost: $${ sale.total_cost }</td>
+            </tr>
+        </table>
+
+        <a href="/catalog/index/" class="btn btn-danger btn-sm">Continue Shopping</a>
+
+    </div>
+
+</%block>

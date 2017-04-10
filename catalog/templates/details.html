@@ -1,0 +1,84 @@
+<%inherit file="app_base.htm" />
+
+<title><%block name="head_title">Details Page</%block></title>
+
+<%block name="content">
+
+    <div class="row" id="middleRow">
+        <div class="col-md-6">
+            <div id="images">
+                <a href="" class="modalPics"><img src="/static/catalog/media/productImages/${product.name.replace(" ", "")}.png/"></a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="detailPanel">
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <h3>${ product.name }</h3>
+                        <div class="text-left">
+                            <ul>
+                                <li>Brand: ${ product.brand }</li>
+                                <li>Category: ${ product.category }</li>
+
+                                %if hasattr(product, 'serial_number'):
+                                     <li>Serial Number: ${ product.serial_number }</li>
+                                %endif
+
+                            </ul>
+                        </div>
+                        <div>
+                            Sale Price: $${ product.price }
+
+                        </div>
+
+                        %if hasattr(product, 'active'):
+                            %if product.active == False:
+                                <p style="background-color: red">Sorry this product is no longer in stock</p>
+                                <button type="button" class="btn btn-primary disabled">Add to Cart</button>
+                            %else:
+                                <div id="purchase_container">
+
+                                    ${ form }
+
+                                </div>
+                            %endif
+
+                        %else:
+                            <div id="purchase_container">
+
+                                ${ form }
+
+                            </div>
+                        %endif
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLabel"></h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src=${ productImage[0].path }>
+            <img src=${ productImage[1].path }>
+            <img src=${ productImage[2].path }>
+          </div>
+          <div class="modal-footer">
+              <button id="previousBtn" class="btn btn-danger">Previous</button>
+              <button id="nextBtn" class="btn btn-danger">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</%block>

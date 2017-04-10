@@ -1,0 +1,24 @@
+.tile-container {
+    display: inline-block;
+    position: relative;
+    padding: 12px;
+    margin: 10px;
+    border-style: groove;
+    border-color: lightskyblue;
+    border-width: 5px;
+}
+.tile-image {
+    padding: 12px;
+}
+.tile-image img {
+    width: 200px;
+}
+.tiles {
+    text-align: center;
+}
+#search {
+    text-align: center;
+}
+.tile-text {
+    float: right;
+}

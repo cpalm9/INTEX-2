@@ -1,0 +1,17 @@
+<%inherit file="/homepage/templates/base.htm" />
+
+## <%block name="navbar_basic">
+##     <li class="${ 'active' if request.dmp_router_page == 'products' else '' }"><a href="/manager/products/">Products</a>
+##     </li>
+##     <li class="${ 'active' if request.dmp_router_page == 'about' else '' }"><a href="/about/">About</a>
+##     </li>
+##     <li class="${ 'active' if request.dmp_router_page == 'contact' else '' }"><a href="/contact/">Contact</a>
+##     </li>
+##     <li class="${ 'active' if request.dmp_router_page == 'FAQ' else '' }"><a href="/FAQ/">FAQ</a></li>
+##     <li class="${ 'active' if request.dmp_router_page == 'terms' else '' }"><a href="/terms/">Terms</a>
+##     </li>
+##     <li class="${ 'active' if request.dmp_router_page == 'sections' else '' }"><a href="/sections/">Sections</a>
+##     </li>
+##     <li class="${ 'active' if request.dmp_router_page == 'users' else '' }"><a href="/manager/users/">Users</a>
+##     </li>
+## </%block>

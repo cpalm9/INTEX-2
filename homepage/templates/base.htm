@@ -1,30 +1,795 @@
 ## this is the skeleton of all pages on in this app - it defines the basic html tags
+
+## imports
+<%! from django_mako_plus import get_template_css, get_template_js %>
+<%! from catalog import models as cmod %>
+
+## <!DOCTYPE html>
+## <html>
+## <meta charset="UTF-8">
+## <head>
+##
+##     <title><%block name="head_title">FOMO Base Page</%block></title>
+##
+##     ## add any site-wide scripts or CSS here; for example, jquery:
+##
+##     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+## ##     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+##     <script type="text/javascript" src="/static/homepage/media/bootstrap/js/bootstrap.min.js"></script>
+##     <script type="text/javascript" src="/static/homepage/media/jquery.datetimepicker.full.js"></script>
+## ##     <script type="text/javascript" src="/static/homepage/scripts/jquery-2.1.1.min.js"></script>
+##     <script src="${ STATIC_URL }homepage/media/jquery.loadmodal.js"></script>
+##     <script src="${ STATIC_URL }homepage/media/jquery.form.js"></script>
+##
+##
+##     <link rel="stylesheet" href="${ STATIC_URL }homepage/media/bootstrap/css/goldbootstrap.css">
+##     <link rel="stylesheet" href="${ STATIC_URL }homepage/media/bootstrap/css/bootstrap.css">
+##     <link rel="stylesheet" type="text/css" href="${ STATIC_URL }homepage/media/jquery.datetimepicker.min.css"/>
+##     <link rel="shortcut icon" type="image/png" href="/static/homepage/media/treble_clef.png" alt="Treble Clef"/>
+##
+##     <link href='//fonts.googleapis.com/css?family=Julius Sans One' rel='stylesheet'>
+##     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+##
+##     ## render the css with the same name as this page
+##     ${ get_template_css(self, request, context) }
+##
+## </head>
+##
+##
+## <!--###################### Head Area ############################-->
+##
+##
+## <!--header maintenance div-->
+##
+##     <%block name="maintenance">
+##
+##     </%block>
+##
+##
+## <!-- header-message use bootstrap-->
+##     <%block name="alert_block">
+##
+##     </%block>
+##
+##
+##     <%block name="header">
+##         <header class="text-center">
+##             <div class="container-fluid">
+##                 <div class="row text-center">
+##                     <div class="col-md-12">
+##                         <div id="headerstuff">
+##                             <div id="header_icon">
+##                                 <img src="${ STATIC_URL }homepage/media/treble_clef.png" alt="Funky treble clef"/>
+##                             </div>
+##                             <div id="header_icon">
+##                                 <h1>Welcome to FOMO!</h1>
+##                             </div>
+##                         </div>
+##                     </div>
+##                 </div>
+##             </div>
+##         </header>
+##     </%block>
+##
+## <!-- ################### Navbar area ###########################-->
+##
+## <div id="navbar" class="nav navbar">
+##     <nav class="navbar-default navbar" role="navigation">
+##         <div class="container">
+##             <div class="navbar-header">
+##                 <button type="button" class="navbar-toggle" data-toggle="collapse"
+##                         data-target=".navbar-ex1-collapse">
+##                     <span class="sr-only">Toggle navigation</span>
+##                     <span class="icon-bar"></span>
+##                     <span class="icon-bar"></span>
+##                     <span class="icon-bar"></span>
+##                 </button>
+##                 <a href="/index/"><img src="/static/homepage/media/treble_clef.png" width="60" height="50"  href="/index/"></a>
+##
+##             </div>
+##             <div class="collapse navbar-collapse navbar-ex1-collapse">
+##                 <ul class="nav navbar-nav">
+##                     <%block name="navbar_basic">
+##                         <li class="${ 'active' if request.dmp_router_page == 'about' else '' }"><a href="/about/">About</a>
+##                         </li>
+##                         <li class="${ 'active' if request.dmp_router_page == 'contact' else '' }"><a href="/contact/">Contact</a>
+##                         </li>
+##                         <li class="${ 'active' if request.dmp_router_page == 'FAQ' else '' }"><a href="/FAQ/">FAQ</a></li>
+##                         <li class="${ 'active' if request.dmp_router_page == 'terms' else '' }"><a href="/terms/">Terms</a>
+##                         </li>
+##                         <li class="${ 'active' if request.dmp_router_page == 'sections' else '' }"><a href="/sections/">Sections</a>
+##                         </li>
+##                         <li class="${ 'active' if request.dmp_router_page == 'catalog' else '' }"><a href="/catalog/index/">Catalog</a>
+##                         </li>
+##                     </%block>
+##                 </ul>
+##                 <ul class="nav navbar-nav navbar-right">
+##                     %if user.is_authenticated:
+##                         <li class="${ 'active' if request.dmp_router_page == 'products' else '' }"><a href="/manager/products/">Products</a></li>
+##                         <li class="${ 'active' if request.dmp_router_page == 'users' else '' }"><a href="/manager/users/">Users</a></li>
+##                         <li class="dropdown">
+##                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome ${ request.user.first_name }
+##                                 <span class="caret"></span></a>
+##                             <ul class="dropdown dropdown-menu">
+##                                 <li><a href="/account/editAccount/${ request.user.id }/">My Account</a></li>
+##                                 <li><a href="/account/editPassword/${ request.user.id }/">Change Password</a></li>
+##                                 <li><a href="/account/logout/">Logout</a></li>
+##                             </ul>
+##                         </li>
+##                         <li><a href="/catalog/shopping_cart/"><span class="glyphicon glyphicon-shopping-cart"></span><span id="cart_count_span" class="badge">${ request.user.get_cart_count() }</span></a></li>
+##                     %else:
+##                         <li><a href="/account/signup/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+##                         <li><a id="modallogin_button" class="submit"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+##                     %endif
+##                 </ul>
+##             </div>
+##         </div>
+##     </nav>
+## </div>
+##
+##
+## <!--########################## Body Area #######################-->
+##
+## <body>
+## <%block name = "blockbody">
+## <div id="above_columns" class="container-fluid">
+##     <div class="row text-center">
+##         <%block name="above_columns">
+##
+##         </%block>
+##     </div>
+## </div>
+##
+##
+## <div id="main" class="container-fluid">
+##     <div class="row text-center">
+##         <div class="col-md-3">
+##             <%block name="left_column">
+##
+##             </%block>
+##         </div>
+##         <div class="col-md-6">
+##             <div id="content">
+##                 <%block name="content">
+##                     Site content goes here in sub-templates.
+##                 </%block>
+##             </div>
+##         </div>
+##         <div class="col-md-3">
+##             <%block name="right_column">
+##                 <div id="last5List">
+##                     <u><h4 style="margin-top: 50px;">Recently Viewed Items</h4></u>
+##                     <div id="lastFive">
+##                         % try:
+##                              % for h in cmod.ShoppingHistory.objects.filter(user=request.user).order_by('date_viewed'):
+##
+##                                  <%
+##
+##                                      if [h.product.name, h.product.id] not in request.last5:
+##                                         request.last5.insert(0, [h.product.name, h.product.id])
+##                                      else:
+##                                         request.last5.insert(0, request.last5.pop(request.last5.index([h.product.name, h.product.id])))
+##
+##                                  %>
+##
+##                              % endfor
+##
+##                             % for x,y in request.last5[:5]:
+##                                 <div>
+##                                     <a href="/catalog/details/${ y }"><img src="/static/catalog/media/productImages/${ x.replace(" ", "")}.png/"></a>
+##                                     <div>
+##                                         ${ x }
+##                                     </div>
+##                                 </div>
+##                              % endfor
+##                         % except:
+##                             % for h in cmod.ShoppingHistory.objects.filter(user=None).order_by('date_viewed'):
+##                                  <%
+##
+##                                      if [h.product.name, h.product.id] not in request.last5:
+##                                         request.last5.insert(0, [h.product.name, h.product.id])
+##                                      else:
+##                                         request.last5.insert(0, request.last5.pop(request.last5.index([h.product.name, h.product.id])))
+##                                  %>
+##
+##                              % endfor
+##
+##                             % for x,y in request.last5[:5]:
+##                                 <div>
+##                                     <a href="/catalog/details/${ y }"><img src="/static/catalog/media/productImages/${ x.replace(" ", "")}.png/"></a>
+##                                     <div>
+##                                         ${ x }
+##                                     </div>
+##                                 </div>
+##                              % endfor
+##                         % endtry
+##                     </div>
+##                 </div>
+##             </%block>
+##         </div>
+##     </div>
+## </div>
+##
+## </%block>
+##     ## render the JS with the same name as this page
+##         ${ get_template_js(self, request, context) }
+##
+## </body>
+##
+## <div class="sitemap">
+##     <div class="col-md-3">
+##         <ul id='footerDepartmentList' class="utilities"><h4>Site Map</h4>
+##             <li><a href="/index/">Home</a></li>
+##             <li><a href="/about/">About</a></li>
+##             <li><a href="/contact/">Contact</a></li>
+##             <li><a href="/FAQ/">FAQ</a></li>
+##             <li><a href="/terms/">Terms</a></li>
+##             <li><a href="/sections/">Sections</a></li>
+##         </ul>
+##     </div>
+##     <div class="col-md-3">
+##         <ul id='footerOurServicesList' class="utilities"><h4>Our Products</h4>
+##             <li><a href="">Brass Instruments</a></li>
+##             <li><a href="">Percussion Instruments</a></li>
+##             <li><a href="">Woodwind Instruments</a></li>
+##             <li><a href="">String Instruments</a></li>
+##             <li><a href="">Rentals</a></li>
+##             <li><a href="">Gift Cards</a></li>
+##          </ul>
+##     </div>
+##     <div class="col-md-3">
+##
+##     </div>
+##     <div class="col-md-3">
+##
+##     </div>
+## </div>
+##
+## <!-- /container -->
+##
+##
+##
+## <footer>
+##     <div class="navbar navbar-default navbar-fixed-bottom navbar">
+##         <div class="container">
+##             <%! from datetime import datetime %>
+##             <p class="navbar-text pull-left">© ${ datetime.now().year } - Site Built By Sean Burnham</p>
+##         </div>
+##     </div>
+## </footer>
+##
+## </html>
+
 <!DOCTYPE html>
 <html>
-    <meta charset="UTF-8">
-    <head>
+<head>
+    <title><%block name="head_title">FOMO</%block></title>
+    <link href="${ STATIC_URL }homepage/media/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="${ STATIC_URL }homepage/media/js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="${ STATIC_URL }homepage/media/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!-- start menu -->
+    <script src="${ STATIC_URL }homepage/media/js/simpleCart.min.js"></script>
+    <!-- start menu -->
+    <link href="${ STATIC_URL }homepage/media/css/memenu.css" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="${ STATIC_URL }homepage/media/js/memenu.js"></script>
+    <script>$(document).ready(function () {
+        $(".memenu").memenu();
+    });</script>
+    <!-- /start menu -->
+</head>
+<body>
+<!--header-->
 
-        <title>homepage</title>
+<div class="top_bg">
+    <div class="container">
+        <div class="header_top-sec">
+            <div class="top_right">
+                <ul>
+                    <li><a href="/about/">about us</a></li>
+                    |
+                    <li><a href="/contact/">Contact</a></li>
+                </ul>
+            </div>
+            <div class="top_left">
+                <ul>
+                    <li class="top_link">Email:<a href="mailto:info@example.com">mail@familymusic.club</a></li>
+                    |
+                    <li class="top_link"><a href="/login/">My Account</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
 
-        ## add any site-wide scripts or CSS here; for example, jquery:
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<div class="header-top">
+    <div class="header-bottom">
+        <div class="container">
+            <div class="logo">
+                <a href="/index/"><h1>FOMO</h1></a>
+            </div>
+            <!---->
 
-        ## render the styles with the same name as this template and its supertemplates
-        ${ django_mako_plus.link_css(self) }
+            <div class="top-nav">
+                <ul class="memenu skyblue">
+                    <li class="active"><a href="/index/">Home</a></li>
+                    <li class="grid"><a href="/catalog/">Catalog</a>
+                        <div class="mepanel">
+                            <div class="row">
+                                <div class="col1 me-one">
+                                    <h4>Shop</h4>
+                                    <ul>
+                                        <li><a href="product.html">Brass</a></li>
+                                        <li><a href="product.html">Percussion</a></li>
+                                        <li><a href="product.html">Strings</a></li>
+                                        <li><a href="product.html">Woodwind</a></li>
+                                        <li><a href="product.html">Accessories</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col1 me-one">
+                                    <h4>Popular Brands</h4>
+                                    <ul>
+                                        <li><a href="product.html">Yamaha</a></li>
+                                        <li><a href="product.html">Farkus</a></li>
+                                        <li><a href="product.html">Cannon</a></li>
+                                        <li><a href="product.html">Holton</a></li>
+                                        <li><a href="product.html">Sony</a></li>
+                                        <li><a href="product.html">Pearl</a></li>
+                                        <li><a href="product.html">Hal Leonardo</a></li>
+                                        <li><a href="product.html">Eko</a></li>
+                                        <li><a href="product.html">Selmer</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="grid"><a href="/about/">About</a></li>
+                    <li class="grid"><a href="/contact/">Contact</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <!---->
+            <div class="cart box_1">
+                <a href="/catalog/shopping_cart/">
+                    <h3>
+                        <div class="total">
+                            <span class="simpleCart_total"></span> (<span id="simpleCart_quantity"
+                                                                          class="simpleCart_quantity"></span>)
+                        </div>
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></h3>
+                </a>
+                <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+            <!---->
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!---->
+<div class="banner">
+    <div class="container">
+    </div>
+</div>
+<!---->
+<div class="welcome">
+    <div class="container">
+        <div class="col-md-3 welcome-left">
+            <h2>Welcome to our site</h2>
+        </div>
+        <div class="col-md-9 welcome-right">
+            <h3>We will say something clever here.</h3>
+            <p>Etiam fermentum consectetur nulla, sit amet dapibus orci sollicitudin vel.
+                Nulla consequat turpis in molestie fermentum. In ornare, tellus non interdum ultricies, elit
+                ex lobortis ex, aliquet accumsan arcu tortor in leo. Nullam molestie elit enim. Donec ac
+                aliquam quam, ac iaculis diam. Donec finibus scelerisque erat, non convallis felis commodo ac.</p>
+        </div>
+    </div>
+</div>
+<!---->
+<div class="bride-grids">
+    <div class="container">
+        <div class="col-md-4 bride-grid">
+            <div class="content-grid l-grids">
+                <figure class="effect-bubba">
+                    <img src="/static/homepage/media/images/trumpet.png" alt=""/>
+                    <figcaption>
+                        <h4>Nullam molestie </h4>
+                        <p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>
+                    </figcaption>
+                </figure>
+                <div class="clearfix"></div>
+                <h3>Brass</h3>
+            </div>
+            <div class="content-grid l-grids">
+                <figure class="effect-bubba">
+                    <img src="/static/homepage/media/images/b2.jpg" alt=""/>
+                    <figcaption>
+                        <h4>Nullam molestie </h4>
+                        <p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>
+                    </figcaption>
+                </figure>
+                <div class="clearfix"></div>
+                <h3>Percussion</h3>
+            </div>
+        </div>
+        <div class="col-md-4 bride-grid">
+            <div class="content-grid l-grids">
+                <img src="/static/homepage/media/images/brid.jpg" alt=""/>
 
-    </head>
-    <body>
-
-        <header>
-            <h1>Welcome to the homepage app!<h1>
-        </header>
-
-        <%block name="content">
-            Site content goes here in sub-templates.
-        </%block>
-
-        ## render the scripts with the same name as this template and its supertemplates
-        ${ django_mako_plus.link_js(self) }
-
-    </body>
+                <h3>Strings</h3>
+            </div>
+        </div>
+        <div class="col-md-4 bride-grid">
+            <div class="content-grid l-grids">
+                <figure class="effect-bubba">
+                    <img src="/static/homepage/media/images/b3.jpg" alt=""/>
+                    <figcaption>
+                        <h4>Nullam molestie </h4>
+                        <p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>
+                    </figcaption>
+                </figure>
+                <div class="clearfix"></div>
+                <h3>Woodwinds</h3>
+            </div>
+            <div class="content-grid l-grids">
+                <figure class="effect-bubba">
+                    <img src="/static/homepage/media/images/b4.jpg" alt=""/>
+                    <figcaption>
+                        <h4>Nullam molestie </h4>
+                        <p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>
+                    </figcaption>
+                </figure>
+                <div class="clearfix"></div>
+                <h3>Accessories</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!---->
+<div class="featured">
+    <div class="container">
+        <h3>Featured Products</h3>
+        <div class="feature-grids">
+            <div class="col-md-3 feature-grid jewel">
+                <a href="product.html"><img src="/static/homepage/media/images/f1.jpg" alt=""/>
+                    <div class="arrival-info">
+                        <h4>Jewellerys #1</h4>
+                        <p>Rs 12000</p>
+                        <span class="pric1"><del>Rs 18000</del></span>
+                        <span class="disc">[12% Off]</span>
+                    </div>
+                    <div class="viw">
+                        <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+                            View</a>
+                    </div>
+                    <div class="shrt">
+                        <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 feature-grid">
+                <a href="product.html"><img src="/static/homepage/media/images/f2.jpg" alt=""/>
+                    <div class="arrival-info">
+                        <h4>Jewellerys #1</h4>
+                        <p>Rs 68000</p>
+                        <span class="pric1"><del>Rs 70000</del></span>
+                        <span class="disc">[10% Off]</span>
+                    </div>
+                    <div class="viw">
+                        <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+                            View</a>
+                    </div>
+                    <div class="shrt">
+                        <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 feature-grid jewel">
+                <a href="product.html"><img src="/static/homepage/media/images/f3.jpg" alt=""/>
+                    <div class="arrival-info">
+                        <h4>Wedding Ceramic Pot </h4>
+                        <p>Rs 1200</p>
+                        <span class="pric1"><del>Rs 2000</del></span>
+                        <span class="disc">[10% Off]</span>
+                    </div>
+                    <div class="viw">
+                        <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+                            View</a>
+                    </div>
+                    <div class="shrt">
+                        <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 feature-grid">
+                <a href="product.html"><img src="/static/homepage/media/images/f4.jpg" alt=""/>
+                    <div class="arrival-info">
+                        <h4>Jewellerys #1</h4>
+                        <p>Rs 12000</p>
+                        <span class="pric1"><del>Rs 18000</del></span>
+                        <span class="disc">[12% Off]</span>
+                    </div>
+                    <div class="viw">
+                        <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+                            View</a>
+                    </div>
+                    <div class="shrt">
+                        <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+                    </div>
+                </a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="feature-grids">
+            <div class="col-md-3 feature-grid jewel">
+                <a href="product.html"><img src="/static/homepage/media/images/p7.jpg" alt=""/>
+                    <div class="arrival-info">
+                        <h4>Jewellerys #1</h4>
+                        <p>Rs 12000</p>
+                        <span class="pric1"><del>Rs 18000</del></span>
+                        <span class="disc">[12% Off]</span>
+                    </div>
+                    <div class="viw">
+                        <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+                            View</a>
+                    </div>
+                    <div class="shrt">
+                        <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 feature-grid">
+                <a href="product.html"><img src="/static/homepage/media/images/p11.jpg" alt=""/>
+                    <div class="arrival-info">
+                        <h4>Jewellerys #1</h4>
+                        <p>Rs 12000</p>
+                        <span class="pric1"><del>Rs 18000</del></span>
+                        <span class="disc">[12% Off]</span>
+                    </div>
+                    <div class="viw">
+                        <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+                            View</a>
+                    </div>
+                    <div class="shrt">
+                        <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 feature-grid jewel">
+                <a href="product.html"><img src="/static/homepage/media/images/p12.jpg" alt=""/>
+                    <div class="arrival-info">
+                        <h4>Jewellerys #1</h4>
+                        <p>Rs 12000</p>
+                        <span class="pric1"><del>Rs 18000</del></span>
+                        <span class="disc">[12% Off]</span>
+                    </div>
+                    <div class="viw">
+                        <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+                            View</a>
+                    </div>
+                    <div class="shrt">
+                        <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 feature-grid">
+                <a href="product.html"><img src="/static/homepage/media/images/f2.jpg" alt=""/>
+                    <div class="arrival-info">
+                        <h4>Jewellerys #1</h4>
+                        <p>Rs 12000</p>
+                        <span class="pric1"><del>Rs 18000</del></span>
+                        <span class="disc">[12% Off]</span>
+                    </div>
+                    <div class="viw">
+                        <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+                            View</a>
+                    </div>
+                    <div class="shrt">
+                        <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+                    </div>
+                </a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!---->
+<div class="arrivals">
+    <div class="container">
+        <h3>New Arrivals</h3>
+        <div class="arrival-grids">
+            <ul id="flexiselDemo1">
+                <li>
+                    <a href="product.html"><img src="/static/homepage/media/images/a1.jpg" alt=""/>
+                        <div class="arrival-info">
+                            <h4>Fusion Black Polyester Suits</h4>
+                            <p>Rs 12000</p>
+                            <span class="pric1"><del>Rs 18000</del></span>
+                            <span class="disc">[12% Off]</span>
+                        </div>
+                        <div class="viw">
+                            <a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+                        </div>
+                        <div class="shrt">
+                            <a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="product.html"><img src="/static/homepage/media/images/a2.jpg" alt=""/>
+                        <div class="arrival-info">
+                            <h4>Vogue4All White Net Gowns</h4>
+                            <p>Rs 14000</p>
+                            <span class="pric1"><del>Rs 15000</del></span>
+                            <span class="disc">[10% Off]</span>
+                        </div>
+                        <div class="viw">
+                            <a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+                        </div>
+                        <div class="shrt">
+                            <a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="product.html"><img src="/static/homepage/media/images/a3.jpg" alt=""/>
+                        <div class="arrival-info">
+                            <h4>Platinum Waist Coat Set Navy</h4>
+                            <p>Rs 4000</p>
+                            <span class="pric1"><del>Rs 8500</del></span>
+                            <span class="disc">[45% Off]</span>
+                        </div>
+                        <div class="viw">
+                            <a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+                        </div>
+                        <div class="shrt">
+                            <a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="product.html"> <img src="/static/homepage/media/images/a4.jpg" alt=""/>
+                        <div class="arrival-info">
+                            <h4>La Fanatise White Net Gowns</h4>
+                            <p>Rs 18000</p>
+                            <span class="pric1"><del>Rs 21000</del></span>
+                            <span class="disc">[8% Off]</span>
+                        </div>
+                        <div class="viw">
+                            <a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+                        </div>
+                        <div class="shrt">
+                            <a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <script type="text/javascript">
+                $(window).load(function () {
+                    $("#flexiselDemo1").flexisel({
+                        visibleItems: 4,
+                        animationSpeed: 1000,
+                        autoPlay: true,
+                        autoPlaySpeed: 3000,
+                        pauseOnHover: true,
+                        enableResponsiveBreakpoints: true,
+                        responsiveBreakpoints: {
+                            portrait: {
+                                changePoint: 480,
+                                visibleItems: 1
+                            },
+                            landscape: {
+                                changePoint: 640,
+                                visibleItems: 2
+                            },
+                            tablet: {
+                                changePoint: 768,
+                                visibleItems: 3
+                            }
+                        }
+                    });
+                });
+            </script>
+            <script type="text/javascript" src="${ STATIC_URL }homepage/media/js/jquery.flexisel.js"></script>
+        </div>
+    </div>
+</div>
+<!---->
+<div class="shoping">
+    <div class="container">
+        <div class="shpng-grids">
+            <div class="col-md-4 shpng-grid">
+                <h3>Free Shipping</h3>
+                <p>On Order Over Rs999</p>
+            </div>
+            <div class="col-md-4 shpng-grid">
+                <h3>Order Return</h3>
+                <p>Return Within 14days</p>
+            </div>
+            <div class="col-md-4 shpng-grid">
+                <h3>COD</h3>
+                <p>Cash On Delivery</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!---->
+<div class="footer">
+    <div class="container">
+        <div class="ftr-grids">
+            <div class="col-md-3 ftr-grid">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">Who We Are</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="/FAQ/">FAQ</a></li>
+                    <li><a href="#">In The News</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 ftr-grid">
+                <h4>Your account</h4>
+                <ul>
+                    <li><a href="account.html">Your Account</a></li>
+                    <li><a href="#">Personal Information</a></li>
+                    <li><a href="#">Addresses</a></li>
+                    <li><a href="#">Discount</a></li>
+                    <li><a href="#">Track your order</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 ftr-grid">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">> Wedding</a></li>
+                    <li><a href="#">> Jewellerys</a></li>
+                    <li><a href="#">> Shoes</a></li>
+                    <li><a href="#">> Flowers</a></li>
+                    <li><a href="#">> Cakes</a></li>
+                    <li><a href="#">...More</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!---->
+<div class="copywrite">
+    <div class="container">
+        <p>Copyright © 2015 Wedding Store. All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a>
+        </p>
+    </div>
+</div>
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

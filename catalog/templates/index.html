@@ -1,0 +1,101 @@
+<%inherit file="app_base.htm" />
+
+<title><%block name="head_title">Catalog</%block></title>
+
+<%! from catalog import models as cmod %>
+
+<%block name="blockbody">
+
+    <div class="col-md-2" id="leftSide">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <ul>
+                    <p>Filter by category:</p>
+                    <li><a href="/catalog/index/">All</a></li>
+                    <li><a href="/catalog/index/5">Percussion</a></li>
+                    <li><a href="/catalog/index/2">Woodwind</a></li>
+                    <li><a href="/catalog/index/1">Brass</a></li>
+                    <li><a href="/catalog/index/3">String</a></li>
+                    <li><a href="/catalog/index/4">Toys</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8" id="middle">
+        <div class="search" id="searchBox">
+            <form method="GET" action="/catalog/search_result/">
+                    <input name="searchBox" type="text" placeholder="Search" required>
+                    <input id="searchButton" type="submit" value="Search">
+            </form>
+        </div>
+
+        % for p in products:
+
+            <div class="tile-container">
+                <div class="tile-image">
+                   <a href="/catalog/details/${ p.id }"> <img src="/static/catalog/media/productImages/${p.name.replace(" ", "")}.png/"></a>
+                </div>
+                <div class="tile-text">
+                    ${p.name}
+                </div>
+                <div class="tile-price">
+                    <strong>$${p.price}</strong>
+                </div>
+                <div class="shopBtn">
+                    <a href="/catalog/details/${ p.id }/" class="btn btn-info" role="button">Shop Now</a>
+                </div>
+            </div>
+
+        % endfor
+    </div>
+    <div class="col-md-2 text-center" id="rightSide">
+        <u><h4 style="margin-top: 50px;">Recently Viewed Items</h4></u>
+        <div id="lastFive">
+              % try:
+                 % for h in cmod.ShoppingHistory.objects.filter(user=request.user).order_by('date_viewed'):
+
+                     <%
+
+                         if [h.product.name, h.product.id] not in request.last5:
+                            request.last5.insert(0, [h.product.name, h.product.id])
+                         else:
+                            request.last5.insert(0, request.last5.pop(request.last5.index([h.product.name, h.product.id])))
+
+                     %>
+
+                 % endfor
+
+                % for x,y in request.last5[:5]:
+                    <div>
+                        <a href="/catalog/details/${ y }"><img src="/static/catalog/media/productImages/${ x.replace(" ", "")}.png/"></a>
+                        <div>
+                            ${ x }
+                        </div>
+                    </div>
+                 % endfor
+            % except:
+                % for h in cmod.ShoppingHistory.objects.filter(user=None).order_by('date_viewed'):
+                    <%
+
+                         if [h.product.name, h.product.id] not in request.last5:
+                            request.last5.insert(0, [h.product.name, h.product.id])
+                         else:
+                            request.last5.insert(0, request.last5.pop(request.last5.index([h.product.name, h.product.id])))
+
+                     %>
+
+                 % endfor
+
+                % for x,y in request.last5[:5]:
+                    <div>
+                        <a href="/catalog/details/${ y }"><img src="/static/catalog/media/productImages/${ x.replace(" ", "")}.png/"></a>
+                        <div>
+                            ${ x }
+                        </div>
+                    </div>
+                 % endfor
+            % endtry
+        </div>
+    </div>
+
+</%block>

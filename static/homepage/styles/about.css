@@ -1,0 +1,21 @@
+#storyDiv{
+    background-color: #0b5f65;
+    padding: 0;
+    width: 100%;
+}
+
+#teamDiv{
+    background-color: #0f0f0f;
+    padding: 0;
+    width: 100%;
+}
+
+.col-md-4 img {
+    margin-top: 50px;
+    height: 200px;
+    width: auto;
+    border-radius: 50px;
+}
+
+.col-md-4 {
+}

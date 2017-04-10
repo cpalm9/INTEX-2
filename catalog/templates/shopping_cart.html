@@ -1,0 +1,68 @@
+<%inherit file="/homepage/templates/app_base.htm"/>
+
+<%! from catalog import models as cmod %>
+
+
+
+<%block name="content">
+    <div>
+
+        % if not products:
+            <p>Your cart is empty homie!</p>
+            <a href="/catalog/index/" class="btn btn-danger btn-sm">Continue Shopping</a>
+
+        %else:
+
+        <table class="topTable" style="width:100%">
+            <tr style="border-bottom: solid;">
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Extended Amount</th>
+                <th></th>
+            </tr>
+
+            %for p in products:
+
+                <tr style="border-top: solid">
+                    <td><a href="/catalog/details/${ p.product.id }"><img id="productImage" src="/static/catalog/media/productImages/${p.product.name.replace(" ", "")}.png/"></a></td>
+                    <td><a href="/catalog/details/${ p.product.id }">${ p.product.name }</a></td>
+                    <td>$${ p.product.price }</td>
+
+                    %if hasattr(p.product, 'quantity'):
+                        <td>x${ p.quantity }</td>
+                    %else:
+                        <td>x1</td>
+                    %endif
+
+                    <td>$${ p.extended_amount }</td>
+                    <td><a id="deleteBtn" href="/catalog/shopping_cart.delete/${ p.id }/" class="btn btn-danger btn-sm">Remove from cart</a></td>
+                </tr>
+
+            %endfor
+        </table>
+        <table class="finance">
+            <tr class="finStuff" style="text-align: right;">
+                <td>Subtotal: $${ cmod.SaleItems.calc_subtotal() }</td>
+            </tr>
+            <tr class="finStuff">
+                <td>Tax: $${ cmod.SaleItems.calc_tax() }</td>
+            </tr>
+            <tr class="finStuff">
+                <td style="border-bottom: solid;">Shipping: $10</td>
+            </tr>
+            <tr class="finStuff">
+                <td>Total: $${ cmod.SaleItems.calc_total() }</td>
+            </tr>
+        </table>
+
+
+
+        <a id="ship_btn" href="/catalog/shipping/" class="btn btn-warning btn-lg" role="button">Enter Shipping Info</a>
+
+        %endif
+
+    </div>
+</%block>
+
