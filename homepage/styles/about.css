@@ -1,28 +1,4 @@
-#storyDiv{
-    background-color: #0b5f65;
-    padding: 0;
-    width: 100%;
-    color: white;
-}
-
-#teamDiv{
-    background-color: #0f0f0f;
-    padding: 0;
-    width: 100%;
-    color: white;
-}
-
-.col-md-4 img {
-    margin-top: 50px;
-    height: 200px;
-    width: auto;
-    border-radius: 55px;
-}
-
-#access {
-    margin-bottom: 15px;
-}
-
-body {
-    color: white;
+.content {
+    color: red;
+    font-size: 15px;
 }
