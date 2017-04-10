@@ -9,7 +9,6 @@ from django.contrib.auth.decorators import permission_required, login_required
 
 
 @view_function
-@login_required
 def process_request(request):
     #pull all products from the db
     products = cmod.Product.objects.order_by('name').all()

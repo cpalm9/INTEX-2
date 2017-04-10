@@ -9,10 +9,6 @@
 
     <div class="product-model">
 	 <div class="container">
-			<ol class="breadcrumb">
-		  <li><a href="/index/">Home</a></li>
-		  <li class="active">Products</li>
-		 </ol>
 			<h2>Our Products</h2>
 		 <div class="col-md-9 product-model-sec">
 
@@ -20,7 +16,7 @@
                  <a href="single.html"><div class="product-grid love-grid">
 						<div class="more-product"><span> </span></div>
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
-							<img src="/static/homepage/media/images/instruments/brass/tuba_1.png" class="img-responsive" alt=""/>
+							<img src=${ p.path } class="img-responsive" alt=""/>
 							<div class="b-wrapper">
 							<h4 class="b-animate b-from-left  b-delay03">
                                 <a href="/catalog/details/${ p.id }"><button class="btns"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>Quick View</button></a>
@@ -31,7 +27,7 @@
 							<div class="product-info-cust prt_name">
 								<h4>${ p.name }</h4>
 								<p>ID: SR4598</p>
-								<span class="item_price">$187.95</span>
+								<span class="item_price">$${ p.price }</span>
 								<input type="text" class="item_quantity" value="1" />
 								<input type="button" class="item_add items" value="ADD">
 							</div>
@@ -41,13 +37,13 @@
              %endfor
 			</div>
 			<div class="rsidebar span_1_of_left">
-				 <section  class="sky-form">
+				 <section  class="sky-form" style="margin-bottom: 30px;">
 					 <div class="product_right">
 						 <h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Categories</h4>
 						 <div class="tab1">
 							 <ul class="place">
 								 <li class="sort">Brass</li>
-								 <li class="by"><img src="images/do.png" alt=""></li>
+								 <li class="by"><img src="/static/homepage/media/images/do.png" alt=""></li>
 									<div class="clearfix"> </div>
 							  </ul>
 							 <div class="single-bottom">
@@ -61,7 +57,7 @@
 						  <div class="tab2">
 							 <ul class="place">
 								 <li class="sort">Percussion</li>
-								 <li class="by"><img src="images/do.png" alt=""></li>
+								 <li class="by"><img src="/static/homepage/media/images/do.png" alt=""></li>
 									<div class="clearfix"> </div>
 							  </ul>
 							 <div class="single-bottom">
@@ -74,7 +70,7 @@
 						  <div class="tab3">
 							 <ul class="place">
 								 <li class="sort">Woodwind</li>
-								 <li class="by"><img src="images/do.png" alt=""></li>
+								 <li class="by"><img src="/static/homepage/media/images/do.png" alt=""></li>
 									<div class="clearfix"> </div>
 							  </ul>
 							 <div class="single-bottom">
@@ -87,7 +83,7 @@
 						  <div class="tab4">
 							 <ul class="place">
 								 <li class="sort">Strings</li>
-								 <li class="by"><img src="images/do.png" alt=""></li>
+								 <li class="by"><img src="/static/homepage/media/images/do.png" alt=""></li>
 									<div class="clearfix"> </div>
 							  </ul>
 							 <div class="single-bottom">
@@ -99,7 +95,7 @@
 						  <div class="tab5">
 							 <ul class="place">
 								 <li class="sort">Accessories</li>
-								 <li class="by"><img src="images/do.png" alt=""></li>
+								 <li class="by"><img src="/static/homepage/media/images/do.png" alt=""></li>
 									<div class="clearfix"> </div>
 							  </ul>
 							 <div class="single-bottom">
@@ -157,7 +153,7 @@
 						</script>
 						<!-- script -->
 				 </section>
-				   <section  class="sky-form">
+				   <section  class="sky-form" style="margin-bottom: 30px;">
 						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Price</h4>
 							<ul class="dropdown-menu1">
 								 <li><a href="">
@@ -167,8 +163,8 @@
 						  </ul>
 				   </section>
 				   <!---->
-					 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
-					 <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+					 <script type="text/javascript" src="${ STATIC_URL }homepage/media/js/jquery-ui.min.js"></script>
+					 <link rel="stylesheet" type="text/css" href="${ STATIC_URL }homepage/media/css/jquery-ui.css">
 					<script type='text/javascript'>//<![CDATA[
 					$(window).load(function(){
 					 $( "#slider-range" ).slider({
@@ -188,10 +184,7 @@
 					 <!---->
 				   		<section  class="sky-form">
 						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Brand</h4>
-							<div class="row row1 scroll-pane">
-								<div class="col col-4">
-									<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Akasana Collectio</label>
-								</div>
+							<div class="row row1 scroll-pane" style="padding-left: 15px;">
 								<div class="col col-4">
 									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Colori</label>
 									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Crafts Hub</label>
