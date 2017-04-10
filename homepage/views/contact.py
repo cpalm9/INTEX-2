@@ -7,8 +7,6 @@ from formlib.form import FormMixIn
 from django.contrib import messages
 from django.core.validators import validate_email
 
-
-
 @view_function
 def process_request(request):
     form = ContactForm(request)
@@ -17,10 +15,12 @@ def process_request(request):
         form.commit()
         return HttpResponseRedirect('/contact/')
 
+    user = request.user
+    print(user.groups)
+
     return dmp_render(request, 'contact.html',{
         'form': form,
     })
-
 
 class ContactForm(FormMixIn, forms.Form):
     SUBJECT_CHOICES = [
