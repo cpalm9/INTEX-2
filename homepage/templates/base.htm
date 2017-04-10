@@ -11,6 +11,8 @@
     <link href="${ STATIC_URL }homepage/media/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="${ STATIC_URL }homepage/media/js/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Custom Theme files -->
     <!--theme-style-->
     <link href="${ STATIC_URL }homepage/media/css/style.css" rel="stylesheet" type="text/css" media="all"/>
@@ -27,10 +29,17 @@
     <script src="${ STATIC_URL }homepage/media/js/simpleCart.min.js"></script>
     <!-- start menu -->
     <link href="${ STATIC_URL }homepage/media/css/memenu.css" rel="stylesheet" type="text/css" media="all"/>
-    <script type="text/javascript" src="${ STATIC_URL }homepage/media/js/memenu.js"></script>
-    <script>$(document).ready(function () {
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="${ STATIC_URL }homepage/media/js/jquery.datetimepicker.full.js"></script>
+    <script src="${ STATIC_URL }homepage/media/js/jquery.loadmodal.js"></script>
+    <script src="${ STATIC_URL }homepage/media/js/jquery.form.js"></script>
+    <!--<script>$(document).ready(function () {
         $(".memenu").memenu();
-    });</script>
+    });</script>-->
+    ## render the css with the same name as this page
+    ${ django_mako_plus.link_css(self) }
+    ## render the JS with the same name as this page
+    ${ django_mako_plus.link_js(self) }
     <!-- /start menu -->
 </head>
 <body>
@@ -50,7 +59,12 @@
                     <ul>
                         <li class="top_link">Email:<a href="mailto:mail@familymusic.club">mail@familymusic.club</a></li>
                         |
-                        <li class="top_link"><a href="/login/">My Account</a></li>
+                        % if user.is_authenticated:
+                        <li class="top_link"><a href="/account/index/">My Account</a></li>
+                        <li class="top_link"><a href="/account/logout/">Logout</a></li>
+                        % else:
+                        <li class="top_link" style="cursor: pointer;"><a id="modallogin_button">Login</a></li>
+                        % endif
                     </ul>
                 </div>
                 <div class="clearfix"></div>

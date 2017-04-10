@@ -91,6 +91,7 @@ u1.is_superuser = True
 u1.save()
 
 u1.groups.add(g1)
+u1.save()
 
 # p = Permission.objects.get()
 # u1.user_permissions.add(p)
