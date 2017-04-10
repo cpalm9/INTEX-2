@@ -11,8 +11,8 @@
                 <div class="col-md-5 ftr-grid">
                   <h4>Welcome to your account, ${ user.first_name }!</h4>
                     <ul>
-                      <li><a href="#">Personal Informaion</a></li>
-                      <li><a href="#">Update Password</a></li>
+                      <li><a href="/account/editAccount/${ request.user.id }">Personal Information</a></li>
+                      <li><a href="/account/editPassword/${ request.user.id }">Update Password</a></li>
                     </ul>
                 </div>
               </div>
