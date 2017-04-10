@@ -196,8 +196,8 @@ cat5.save()
 bp1 = cmod.BulkProduct()
 bp1.category = cat4
 bp1.name = 'Bassoon Reed'
-bp1.brand = 'change this'
-bp1.price = Decimal('.50')
+bp1.brand = 'Singin Dog'
+bp1.price = Decimal('33.99')
 bp1.quantity = 20
 bp1.reorder_trigger = 5
 bp1.reorder_qty = 15
@@ -212,8 +212,8 @@ pp1.save()
 bp2 = cmod.BulkProduct()
 bp2.category = cat4
 bp2.name = 'Drum Sticks'
-bp2.brand = 'wood'
-bp2.price = Decimal('4.50')
+bp2.brand = 'PROMARK'
+bp2.price = Decimal('99.99')
 bp2.quantity = 15
 bp2.reorder_trigger = 5
 bp2.reorder_qty = 10
@@ -228,8 +228,8 @@ pp2.save()
 bp3 = cmod.BulkProduct()
 bp3.category = cat4
 bp3.name = 'Electric Guitar String'
-bp3.brand = 'ToysRUs'
-bp3.price = Decimal('2.50')
+bp3.brand = 'Ernie Ball'
+bp3.price = Decimal('13.99')
 bp3.quantity = 10
 bp3.reorder_trigger = 5
 bp3.reorder_qty = 5
@@ -249,8 +249,8 @@ pp4.save()
 bp4 = cmod.BulkProduct()
 bp4.category = cat4
 bp4.name = 'Guitar Amp'
-bp4.brand = 'ToysRUs'
-bp4.price = Decimal('2.50')
+bp4.brand = 'Marshall'
+bp4.price = Decimal('699.99')
 bp4.quantity = 10
 bp4.reorder_trigger = 5
 bp4.reorder_qty = 5
@@ -265,8 +265,8 @@ pp5.save()
 bp5 = cmod.BulkProduct()
 bp5.category = cat4
 bp5.name = 'Guitar Picks'
-bp5.brand = 'ToysRUs'
-bp5.price = Decimal('2.50')
+bp5.brand = 'Fender'
+bp5.price = Decimal('3.99')
 bp5.quantity = 10
 bp5.reorder_trigger = 5
 bp5.reorder_qty = 5
@@ -291,8 +291,8 @@ pp8.save()
 bp6 = cmod.BulkProduct()
 bp6.category = cat4
 bp6.name = 'Guitar Strap'
-bp6.brand = 'ToysRUs'
-bp6.price = Decimal('2.50')
+bp6.brand = 'Ernie Ball'
+bp6.price = Decimal('4.29')
 bp6.quantity = 10
 bp6.reorder_trigger = 5
 bp6.reorder_qty = 5
@@ -317,8 +317,8 @@ pp11.save()
 bp7 = cmod.BulkProduct()
 bp7.category = cat4
 bp7.name = 'Guitar Strings'
-bp7.brand = 'ToysRUs'
-bp7.price = Decimal('2.50')
+bp7.brand = 'Elixir'
+bp7.price = Decimal('12.99')
 bp7.quantity = 10
 bp7.reorder_trigger = 5
 bp7.reorder_qty = 5
@@ -338,8 +338,8 @@ pp13.save()
 bp8 = cmod.BulkProduct()
 bp8.category = cat4
 bp8.name = 'Guitar Tuner'
-bp8.brand = 'ToysRUs'
-bp8.price = Decimal('2.50')
+bp8.brand = 'Fishman'
+bp8.price = Decimal('27.45')
 bp8.quantity = 10
 bp8.reorder_trigger = 5
 bp8.reorder_qty = 5
@@ -359,8 +359,8 @@ pp15.save()
 bp9 = cmod.BulkProduct()
 bp9.category = cat4
 bp9.name = 'Music Stand'
-bp9.brand = 'ToysRUs'
-bp9.price = Decimal('2.50')
+bp9.brand = "Musician's Gear"
+bp9.price = Decimal('26.99')
 bp9.quantity = 10
 bp9.reorder_trigger = 5
 bp9.reorder_qty = 5
@@ -385,8 +385,8 @@ pp18.save()
 bp10 = cmod.BulkProduct()
 bp10.category = cat4
 bp10.name = 'Oboe Reed'
-bp10.brand = 'ToysRUs'
-bp10.price = Decimal('2.50')
+bp10.brand = 'Stradella'
+bp10.price = Decimal('11.61')
 bp10.quantity = 10
 bp10.reorder_trigger = 5
 bp10.reorder_qty = 5
@@ -401,8 +401,8 @@ pp19.save()
 bp11 = cmod.BulkProduct()
 bp11.category = cat4
 bp11.name = 'Saxophone Mouthpiece'
-bp11.brand = 'ToysRUs'
-bp11.price = Decimal('2.50')
+bp11.brand = 'Berg Larsen'
+bp11.price = Decimal('289.99')
 bp11.quantity = 10
 bp11.reorder_trigger = 5
 bp11.reorder_qty = 5
@@ -417,8 +417,8 @@ pp20.save()
 bp12 = cmod.BulkProduct()
 bp12.category = cat4
 bp12.name = 'Saxophone Reeds'
-bp12.brand = 'ToysRUs'
-bp12.price = Decimal('2.50')
+bp12.brand = 'Alexander Reeds'
+bp12.price = Decimal('25.10')
 bp12.quantity = 10
 bp12.reorder_trigger = 5
 bp12.reorder_qty = 5
@@ -433,8 +433,8 @@ pp21.save()
 bp13 = cmod.BulkProduct()
 bp13.category = cat4
 bp13.name = 'Sheet Music'
-bp13.brand = 'ToysRUs'
-bp13.price = Decimal('2.50')
+bp13.brand = 'G. Schirmer'
+bp13.price = Decimal('10.99')
 bp13.quantity = 10
 bp13.reorder_trigger = 5
 bp13.reorder_qty = 5
@@ -459,8 +459,8 @@ pp24.save()
 bp14 = cmod.BulkProduct()
 bp14.category = cat4
 bp14.name = 'Trumpet Mouthpiece'
-bp14.brand = 'ToysRUs'
-bp14.price = Decimal('2.50')
+bp14.brand = 'Bach Standard'
+bp14.price = Decimal('56.00')
 bp14.quantity = 10
 bp14.reorder_trigger = 5
 bp14.reorder_qty = 5
@@ -475,8 +475,8 @@ pp25.save()
 bp15 = cmod.BulkProduct()
 bp15.category = cat4
 bp15.name = 'Trumpet Mute'
-bp15.brand = 'ToysRUs'
-bp15.price = Decimal('2.50')
+bp15.brand = 'Harmon'
+bp15.price = Decimal('37.99')
 bp15.quantity = 10
 bp15.reorder_trigger = 5
 bp15.reorder_qty = 5
@@ -497,9 +497,9 @@ pp27.save()
 up1 = cmod.UniqueProduct()
 up1.category = cat1
 up1.name = 'French Horn'
-up1.brand = 'Yamaha'
-up1.price = Decimal('449.99')
-up1.serial_number = 'xyz1'
+up1.brand = 'Allora'
+up1.price = Decimal('1599.99')
+up1.serial_number = 'fh001'
 up1.path = '/static/homepage/media/images/instruments/brass/double_1.png'
 up1.save()
 
@@ -516,9 +516,9 @@ pp29.save()
 up2 = cmod.UniqueProduct()
 up2.category = cat1
 up2.name = 'Fluglehorn'
-up2.brand = 'Accent'
-up2.price = Decimal('514.50')
-up2.serial_number = 'xyz2'
+up2.brand = 'B&S'
+up2.price = Decimal('2371.00')
+up2.serial_number = 'fh002'
 up2.path = '/static/homepage/media/images/instruments/brass/flugelhorn_1.png'
 up2.save()
 
@@ -540,9 +540,9 @@ pp32.save()
 up3 = cmod.UniqueProduct()
 up3.category = cat1
 up3.name = 'Trombone'
-up3.brand = 'Accent'
-up3.price = Decimal('514.50')
-up3.serial_number = 'xyz2'
+up3.brand = 'Prelude'
+up3.price = Decimal('1039.00')
+up3.serial_number = 'trb001'
 up3.path = '/static/homepage/media/images/instruments/brass/trombone_1.png'
 up3.save()
 
@@ -564,9 +564,9 @@ pp35.save()
 up4 = cmod.UniqueProduct()
 up4.category = cat1
 up4.name = 'Trumpet'
-up4.brand = 'Accent'
-up4.price = Decimal('514.50')
-up4.serial_number = 'xyz2'
+up4.brand = 'Allora'
+up4.price = Decimal('599.99')
+up4.serial_number = 'tr001'
 up4.path = '/static/homepage/media/images/instruments/brass/trumpet_1.png'
 up4.save()
 
@@ -588,9 +588,9 @@ pp38.save()
 up5 = cmod.UniqueProduct()
 up5.category = cat1
 up5.name = 'Tuba'
-up5.brand = 'Accent'
-up5.price = Decimal('514.50')
-up5.serial_number = 'xyz2'
+up5.brand = 'Amati'
+up5.price = Decimal('3259.00')
+up5.serial_number = 'tb001'
 up5.path = '/static/homepage/media/images/instruments/brass/tuba_1.png'
 up5.save()
 
@@ -612,9 +612,9 @@ pp40.save()
 up6 = cmod.UniqueProduct()
 up6.category = cat3
 up6.name = 'Banjo'
-up6.brand = 'Accent'
-up6.price = Decimal('514.50')
-up6.serial_number = 'xyz2'
+up6.brand = 'Rogue'
+up6.price = Decimal('199.99')
+up6.serial_number = 'bj001'
 up6.path = '/static/homepage/media/images/instruments/percussion/banjo_1.png'
 up6.save()
 
@@ -636,9 +636,9 @@ pp43.save()
 up7 = cmod.UniqueProduct()
 up7.category = cat5
 up7.name = 'Bass Drum'
-up7.brand = 'Accent'
-up7.price = Decimal('514.50')
-up7.serial_number = 'xyz2'
+up7.brand = 'SPL'
+up7.price = Decimal('779.99')
+up7.serial_number = 'bdr001'
 up7.path = '/static/homepage/media/images/instruments/percussion/bass_drum1.png'
 up7.save()
 
@@ -655,9 +655,9 @@ pp45.save()
 up8 = cmod.UniqueProduct()
 up8.category = cat5
 up8.name = 'Cymbal'
-up8.brand = 'Accent'
-up8.price = Decimal('514.50')
-up8.serial_number = 'xyz2'
+up8.brand = 'Zildijan'
+up8.price = Decimal('309.95')
+up8.serial_number = 'cy001'
 up8.path = '/static/homepage/media/images/instruments/percussion/cymball.png'
 up8.save()
 
@@ -669,9 +669,9 @@ pp46.save()
 up9 = cmod.UniqueProduct()
 up9.category = cat5
 up9.name = 'Gong'
-up9.brand = 'Accent'
-up9.price = Decimal('514.50')
-up9.serial_number = 'xyz2'
+up9.brand = 'Zildijian'
+up9.price = Decimal('399.99')
+up9.serial_number = 'g001'
 up9.path = '/static/homepage/media/images/instruments/percussion/gong.png'
 up9.save()
 
@@ -683,9 +683,9 @@ pp47.save()
 up10 = cmod.UniqueProduct()
 up10.category = cat5
 up10.name = 'Snare Drum'
-up10.brand = 'Accent'
-up10.price = Decimal('514.50')
-up10.serial_number = 'xyz2'
+up10.brand = 'Ludwig'
+up10.price = Decimal('849.00')
+up10.serial_number = 'sd001'
 up10.path = '/static/homepage/media/images/instruments/percussion/snare_drum1.png'
 up10.save()
 
@@ -702,9 +702,9 @@ pp49.save()
 up11 = cmod.UniqueProduct()
 up11.category = cat5
 up11.name = 'Tenor Drum'
-up11.brand = 'Accent'
-up11.price = Decimal('514.50')
-up11.serial_number = 'xyz2'
+up11.brand = 'Tama'
+up11.price = Decimal('429.99')
+up11.serial_number = 'td001'
 up11.path = '/static/homepage/media/images/instruments/percussion/tenor_drum1.png'
 up11.save()
 
@@ -716,9 +716,9 @@ pp50.save()
 up12 = cmod.UniqueProduct()
 up12.category = cat5
 up12.name = 'Timpani'
-up12.brand = 'Accent'
-up12.price = Decimal('514.50')
-up12.serial_number = 'xyz2'
+up12.brand = 'Ludwig'
+up12.price = Decimal('1659.99')
+up12.serial_number = 'ti001'
 up12.path = '/static/homepage/media/images/instruments/percussion/timpani_1.png'
 up12.save()
 
@@ -740,9 +740,9 @@ pp53.save()
 up13 = cmod.UniqueProduct()
 up13.category = cat5
 up13.name = 'Xylophone'
-up13.brand = 'Accent'
-up13.price = Decimal('514.50')
-up13.serial_number = 'xyz2'
+up13.brand = 'Sound Percussion'
+up13.price = Decimal('499.99')
+up13.serial_number = 'x001'
 up13.path = '/static/homepage/media/images/instruments/percussion/xylophone.png'
 up13.save()
 
@@ -754,9 +754,9 @@ pp52.save()
 up14 = cmod.UniqueProduct()
 up14.category = cat3
 up14.name = 'Acoustic Guitar'
-up14.brand = 'Accent'
-up14.price = Decimal('514.50')
-up14.serial_number = 'xyz2'
+up14.brand = 'Rogue'
+up14.price = Decimal('69.99')
+up14.serial_number = 'ag001'
 up14.path = '/static/homepage/media/images/instruments/string/acoustic_guitar_1.png'
 up14.save()
 
@@ -777,10 +777,10 @@ pp55.save()
 
 up15 = cmod.UniqueProduct()
 up15.category = cat3
-up15.name = 'Bass'
-up15.brand = 'Accent'
-up15.price = Decimal('514.50')
-up15.serial_number = 'xyz2'
+up15.name = 'Double Bass'
+up15.brand = 'Stentor'
+up15.price = Decimal('1539.99')
+up15.serial_number = 'db001'
 up15.path = '/static/homepage/media/images/instruments/string/bass_1.png'
 up15.save()
 
@@ -802,9 +802,9 @@ pp58.save()
 up16 = cmod.UniqueProduct()
 up16.category = cat3
 up16.name = 'Bass Guitar'
-up16.brand = 'Accent'
-up16.price = Decimal('514.50')
-up16.serial_number = 'xyz2'
+up16.brand = 'Fender'
+up16.price = Decimal('699.99')
+up16.serial_number = 'bg001'
 up16.path = '/static/homepage/media/images/instruments/string/bass_guitar_1.png'
 up16.save()
 
@@ -826,9 +826,9 @@ pp61.save()
 up17 = cmod.UniqueProduct()
 up17.category = cat3
 up17.name = 'Cello'
-up17.brand = 'Accent'
-up17.price = Decimal('514.50')
-up17.serial_number = 'xyz2'
+up17.brand = 'Bellafina'
+up17.price = Decimal('799.99')
+up17.serial_number = 'ce001'
 up17.path = '/static/homepage/media/images/instruments/string/cello_1.png'
 up17.save()
 
@@ -850,9 +850,9 @@ pp64.save()
 up18 = cmod.UniqueProduct()
 up18.category = cat3
 up18.name = 'Electric Guitar'
-up18.brand = 'Accent'
-up18.price = Decimal('514.50')
-up18.serial_number = 'xyz2'
+up18.brand = 'Gibson'
+up18.price = Decimal('2269.00')
+up18.serial_number = 'eg001'
 up18.path = '/static/homepage/media/images/instruments/string/guitar_1.png'
 up18.save()
 
@@ -874,8 +874,8 @@ pp67.save()
 up19 = cmod.UniqueProduct()
 up19.category = cat3
 up19.name = 'Keyboard'
-up19.brand = 'Accent'
-up19.price = Decimal('514.50')
+up19.brand = 'Williams Allegro'
+up19.price = Decimal('299.99')
 up19.serial_number = 'xyz2'
 up19.path = '/static/homepage/media/images/instruments/string/piano_1.png'
 up19.save()
@@ -898,9 +898,9 @@ pp70.save()
 up20 = cmod.UniqueProduct()
 up20.category = cat3
 up20.name = 'Viola'
-up20.brand = 'Accent'
-up20.price = Decimal('514.50')
-up20.serial_number = 'xyz2'
+up20.brand = 'Ren Wei Shi'
+up20.price = Decimal('599.99')
+up20.serial_number = 'va001'
 up20.path = '/static/homepage/media/images/instruments/string/viola_1.png'
 up20.save()
 
@@ -922,9 +922,9 @@ pp73.save()
 up21 = cmod.UniqueProduct()
 up21.category = cat3
 up21.name = 'Violin'
-up21.brand = 'Accent'
-up21.price = Decimal('514.50')
-up21.serial_number = 'xyz2'
+up21.brand = 'Bellafina'
+up21.price = Decimal('199.99')
+up21.serial_number = 'vn001'
 up21.path = '/static/homepage/media/images/instruments/string/violin_1.png'
 up21.save()
 
@@ -946,9 +946,9 @@ pp76.save()
 up22 = cmod.UniqueProduct()
 up22.category = cat2
 up22.name = 'Clarinet'
-up22.brand = 'Accent'
-up22.price = Decimal('514.50')
-up22.serial_number = 'xyz2'
+up22.brand = 'Etude'
+up22.price = Decimal('149.99')
+up22.serial_number = 'ct001'
 up22.path = '/static/homepage/media/images/instruments/woodwind/clarient_1.png'
 up22.save()
 
@@ -965,9 +965,9 @@ pp78.save()
 up23 = cmod.UniqueProduct()
 up23.category = cat2
 up23.name = 'Electric Kazoo'
-up23.brand = 'Accent'
-up23.price = Decimal('514.50')
-up23.serial_number = 'xyz2'
+up23.brand = 'Lyons Hummbucker'
+up23.price = Decimal('16.95')
+up23.serial_number = 'ek001'
 up23.path = '/static/homepage/media/images/instruments/woodwind/electric_kazoo.png'
 up23.save()
 
@@ -979,9 +979,9 @@ pp79.save()
 up24 = cmod.UniqueProduct()
 up24.category = cat2
 up24.name = 'Flute'
-up24.brand = 'Accent'
-up24.price = Decimal('514.50')
-up24.serial_number = 'xyz2'
+up24.brand = 'Yamaha'
+up24.price = Decimal('1205.99')
+up24.serial_number = 'fl001'
 up24.path = '/static/homepage/media/images/instruments/woodwind/flute_1.png'
 up24.save()
 
@@ -998,9 +998,9 @@ pp81.save()
 up25 = cmod.UniqueProduct()
 up25.category = cat2
 up25.name = 'Harmonica'
-up25.brand = 'Accent'
-up25.price = Decimal('514.50')
-up25.serial_number = 'xyz2'
+up25.brand = 'Lee Oskar'
+up25.price = Decimal('37.99')
+up25.serial_number = 'har001'
 up25.path = '/static/homepage/media/images/instruments/woodwind/harmonica1.png'
 up25.save()
 
@@ -1022,9 +1022,9 @@ pp84.save()
 up26 = cmod.UniqueProduct()
 up26.category = cat2
 up26.name = 'Oboe'
-up26.brand = 'Accent'
-up26.price = Decimal('514.50')
-up26.serial_number = 'xyz2'
+up26.brand = 'Bulgheroni'
+up26.price = Decimal('5895.00')
+up26.serial_number = 'ob001'
 up26.path = '/static/homepage/media/images/instruments/woodwind/oboe_1.png'
 up26.save()
 
@@ -1041,9 +1041,9 @@ pp86.save()
 up27 = cmod.UniqueProduct()
 up27.category = cat2
 up27.name = 'Saxophone'
-up27.brand = 'Accent'
-up27.price = Decimal('514.50')
-up27.serial_number = 'xyz2'
+up27.brand = 'Etude'
+up27.price = Decimal('299.99')
+up27.serial_number = 'sx001'
 up27.path = '/static/homepage/media/images/instruments/woodwind/sax_1.png'
 up27.save()
 
