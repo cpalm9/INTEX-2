@@ -206,7 +206,7 @@ h1.b1,h2.b2,h3.b3 {
 }
 /*----*/
 .banner{
-	background:url(../images/jazz.png) no-repeat 0px 0px;
+	background:url(../images/background.png) no-repeat 0px 0px;
 	background-size:cover;
 	min-height:700px;
 }
