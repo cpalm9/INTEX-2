@@ -158,5 +158,8 @@ class Payment(models.Model):
     date = models.DateTimeField(auto_now = True, null=True)
     amount = models.DecimalField(max_digits=6, decimal_places=2)
 
-
-# Three things objects have: Methods, Data, Identity
+class ProductComment(models.Model):
+    product_id = models.IntegerField(default=0, blank=True, null=True)
+    comment = models.TextField(blank=True, null=True)
+    user_id = models.IntegerField(default=0, blank=True, null=True)
+    date = models.DateTimeField(auto_now = True, null=True)
