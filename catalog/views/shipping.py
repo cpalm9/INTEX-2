@@ -37,6 +37,7 @@ def process_request(request):
         return HttpResponseRedirect('/catalog/checkout/')
 
     context = {
+        'checklist': checklist,
         'form': form,
     }
 
@@ -76,11 +77,20 @@ class ShippingForm(FormMixIn, forms.Form):
         address_result1 = geocode_result[0]["address_components"][0]["long_name"]
         address_result2 = geocode_result[0]["address_components"][1]["long_name"]
 
-        new_address = address_result1 + ' ' + address_result2
-        new_city = geocode_result[0]["address_components"][2]["long_name"]
-        new_state = geocode_result[0]["address_components"][4]["long_name"]
-        new_zip = geocode_result[0]["address_components"][6]["long_name"]
-        new_full_address = new_address + ', ' + new_city + ', ' + new_state + ', ' + new_zip
+        # new_address = address_result1 + ' ' + address_result2
+        # new_city = geocode_result[0]["address_components"][2]["long_name"]
+        # new_state = geocode_result[0]["address_components"][4]["long_name"]
+        # new_zip = geocode_result[0]["address_components"][6]["long_name"]
+        # new_full_address = new_address + ', ' + new_city + ', ' + new_state + ', ' + new_zipcode
+
+        google_address = geocode_result[0]['formatted_address']
+        address_list = [x.strip() for x in google_address.split(',')]
+        # print(address_list)
+        new_address = address_list[0]
+        new_city = address_list[1]
+        new_state = ''.join(c for c in address_list[2] if c.isalpha())
+        new_zipcode = ''.join(c for c in address_list[2] if c.isdigit())
+        new_full_address = new_address + ', ' + new_city + ', ' + new_state + ', ' + new_zipcode
 
         self.data = self.data.copy()
         if full_address == new_full_address:
@@ -89,7 +99,7 @@ class ShippingForm(FormMixIn, forms.Form):
             self.data['street'] = new_address
             self.data['city'] = new_city
             self.data['state'] = new_state
-            self.data['zipcode'] = new_zip
+            self.data['zipcode'] = new_zipcode
             raise forms.ValidationError('We have made some changes please make sure it is correct.')
 
         return self.cleaned_data

@@ -34,6 +34,7 @@ def process_request(request):
 
     context = {
         'form': form,
+        'checklist': checklist,
     }
 
     return dmp_render(request, 'checkout.html', context)

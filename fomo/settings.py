@@ -159,7 +159,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'FOMO-Intex',
         'USER': 'postgres',
-        'PASSWORD': 'finn3gan',
+        'PASSWORD': 'byucougar5',
         'HOST': 'localhost',
         'PORT': '',
     }
