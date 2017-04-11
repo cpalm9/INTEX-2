@@ -3,24 +3,22 @@
 <%block name="head_title">Manager Page</%block>
 
 <%block name="content">
-    <div class="banner">
-        <div class="content">
-            <div class="row">
-                    <div id="user_menu">
-                        <ul>
-                            <div class="container">
-                                <div class="ftr-grids">
-                                    <div class="col-md-5 ftr-grid">
-                                    <h4>Welcome to the Managers' page, ${ user.first_name }!</h4>
-                                    <ul>
-                                        <li><a href="/manager/products">View Products</a></li>
-                                        <li><a href="/manager/users/">View Users</a></li>
-                                    </ul>
-                                </div>
+    <div class="content">
+        <div class="banner">
+            <div id="user_menu">
+                <ul>
+                    <div class="container">
+                        <div class="ftr-grids">
+                            <div class="col-md-5 ftr-grid" style="float:right;">
+                                <h4>Welcome to the Managers' page, ${ user.first_name }!</h4>
+                                <ul>
+                                    <li><a href="/manager/products">View Products</a></li>
+                                    <li><a href="/manager/users/">View Users</a></li>
+                                </ul>
                             </div>
                         </div>
-                    </ul>
-                </div>
+                    </div>
+                </ul>
             </div>
         </div>
     </div>

@@ -4,12 +4,17 @@
     min-height:700px;
 }
 
+.content {
+    text-align: right;
+}
+
 ul {
     color: white;
 }
 
 #user_menu {
-    padding-top:2%;
+    padding-right: 5%;
+    padding-top:1%;
     line-height: 175%;
     
 }

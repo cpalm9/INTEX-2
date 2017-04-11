@@ -4,6 +4,13 @@
 <%! from catalog import models as cmod %>
 
 <%block name="content">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="/manager/index">Manager Homepage</a></li>
+            <li class="active">Product List</li>
+        </ol>
+    </div>   
+
     <div class="content">
       <h1>Products</h1>
 
@@ -46,8 +53,10 @@
     % endfor
 
     </table>
-
-        <a href="/manager/product.create/" class="btn btn-primary" role="button">Create</a>
+        </br>
+        <div id="createbtn">
+            <a href="/manager/product.create/" class="btn btn-primary" role="button">Create New Product</a>
+        </div>
 
     </div>
 

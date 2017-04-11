@@ -13,6 +13,10 @@
     <script src="${ STATIC_URL }homepage/media/js/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    ## render the css with the same name as this page
+    ${ django_mako_plus.link_css(self) }
+    ## render the JS with the same name as this page
+    ${ django_mako_plus.link_js(self) }
     <!-- Custom Theme files -->
     <!--theme-style-->
     <link href="${ STATIC_URL }homepage/media/css/style.css" rel="stylesheet" type="text/css" media="all"/>
@@ -36,10 +40,7 @@
     <!--<script>$(document).ready(function () {
         $(".memenu").memenu();
     });</script>-->
-    ## render the css with the same name as this page
-    ${ django_mako_plus.link_css(self) }
-    ## render the JS with the same name as this page
-    ${ django_mako_plus.link_js(self) }
+
     <!-- /start menu -->
 </head>
 <body>

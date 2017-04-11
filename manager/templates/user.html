@@ -2,7 +2,15 @@
 <%inherit file="app_base.htm" />
 
 <%block name="content">
-
-    ${ form }
-
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="/manager/index">Manager Homepage</a></li>
+            <li><a href="/manager/users">User List</a></li>
+            <li class="active">User</li>
+        </ol>
+    </div> 
+    <div class="content">
+        <h1>User: ${ user.username }</h1>
+        ${ form }
+    </div>
 </%block>
