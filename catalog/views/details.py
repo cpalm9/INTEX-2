@@ -11,11 +11,9 @@ from decimal import Decimal
 @view_function
 def process_request(request):
     #pull product from the db
-
     try:
         product = cmod.Product.objects.get(id=request.urlparams[0])
-
-    except cmod.Product.DoesNotExist:
+    except:
         return HttpResponseRedirect('/catalog/index/')
 
     try:
