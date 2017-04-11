@@ -4,50 +4,51 @@
 
 <%block name="content">
 
-    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script src="https://checkout.stripe.com/checkout.js" xmlns="http://www.w3.org/1999/html"></script>
 
 
-    <div class="midPanel">
-        <div class="panel panel-default">
-              <div class="panel-heading">
-                  <h3 class="panel-title">Thank you for shopping with us!</h3>
-              </div>
-             <table class="table table-bordered text-center">
-              <thead>
-                <tr>
-                  <th class="col-md-1"><small>Subtotal:</small></th>
-                  <th class="col-md-1"><small>Tax:</small></th>
-                  <th class="col-md-2"><small>Shipping:</small></th>
-                  <th class="col-md-2"><small>Total:</small></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><small>$${ cmod.SaleItems.calc_subtotal() }</small></td>
-                  <td><small>$${ cmod.SaleItems.calc_tax() }</small></td>
-                  <td><small>$10</small></td>
-                  <td><small>$${ cmod.SaleItems.calc_total() }</small></td>
-                </tr>
-              </tbody>
-            </table>
-           </div>
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+          <table class="table table-striped">
+          <thead>
+            <tr>
+                <th>Product</th>
+                <th>Name</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Extended Price</th>
+            </tr>
+          </thead>
+          <tbody>
+          %for c in checklist:
+            <tr class="tableStuff">
+                <th scope="row"><img style="width: 80px;" src=${ c.product.path } class="img-responsive" alt=""></th>
+                <td style="padding-top: 25px;">${ c.product.name }</td>
+                <td style="padding-top: 25px;">$${ c.product.price }</td>
+
+                %if hasattr(c.product, 'quantity'):
+                    <td style="padding-top: 25px;">x${ c.quantity }</td>
+                %else:
+                   <td style="padding-top: 25px;">x1</td>
+                %endif
+                <td style="padding-top: 25px;">$${ c.extended_amount }</td>
+            </tr>
+          %endfor
+          </tbody>
+        </table>
+          <div class="text-right">
+              <ul style="list-style-type: none;">
+                  <strong><li>Subtotal: $${ cmod.SaleItems.calc_subtotal() }</li>
+                  <li>Tax: $${ cmod.SaleItems.calc_tax() }</li>
+                  <li>Shipping: $10</li>
+                  <li style="text-decoration:overline;">Total: $${ cmod.SaleItems.calc_total() }</li></strong>
+              </ul>
+
+          </div>
+      </div>
+      <div class="col-sm-3"></div>
     </div>
-
-##     <table class="finance">
-##             <tr class="finStuff" style="text-align: right;">
-##                 <td>Subtotal: $${ cmod.SaleItems.calc_subtotal() }</td>
-##             </tr>
-##             <tr class="finStuff">
-##                 <td>Tax: $${ cmod.SaleItems.calc_tax() }</td>
-##             </tr>
-##             <tr class="finStuff">
-##                 <td style="border-bottom: solid;">Shipping: $10</td>
-##             </tr>
-##             <tr class="finStuff">
-##                 <td>Total: $${ cmod.SaleItems.calc_total() }</td>
-##             </tr>
-##     </table>
-
 
    <div id="payment_form">
        ${ form }

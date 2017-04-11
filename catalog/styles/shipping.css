@@ -1,0 +1,7 @@
+#payment_form{
+    line-height: 275%;
+}
+
+#payment_form > button{
+    background-color: #00a0dc;
+}

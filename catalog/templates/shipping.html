@@ -1,8 +1,40 @@
 <%inherit file="app_base.htm"/>
-
+<%! from catalog import models as cmod %>
 <%block name="content">
+    <div>
 
-   <div id="payment_form">
-       ${ form }
-   </div>
+        <div class="checkout">
+             <div class="container">
+                 <ol class="breadcrumb">
+                  <li><a href="/catalog/shopping_cart/">Cart</a></li>
+                  <li class="active">Shipping</li>
+                 </ol>
+                 <div class="col-md-9 product-price1">
+                     <div class="check-out">
+                         <h2 class="text-center">Enter Shipping Info</h2>
+                          <div id="payment_form">
+                              ${ form }
+                          </div>
+                     </div>
+                 </div>
+                 <div class="col-md-3 cart-total">
+                     <a class="continue" href="/catalog/index/">Continue Shopping</a>
+                     <div class="price-details">
+                         <h3>Price Details</h3>
+                         <span>SubTotal</span>
+                         <span class="total">$${ cmod.SaleItems.calc_subtotal() }</span>
+                         <span>Tax</span>
+                         <span class="total">$${ cmod.SaleItems.calc_tax() }</span>
+                         <span>Delivery Charges</span>
+                         <span class="total">$10.00</span>
+                         <div class="clearfix"></div>
+                     </div>
+                     <h4 class="last-price">TOTAL</h4>
+                     <span class="total final">$${ cmod.SaleItems.calc_total() }</span>
+                     <div class="clearfix"></div>
+             </div>
+        </div>
+
+    </div>
+
 </%block>
