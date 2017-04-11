@@ -27,6 +27,8 @@ class Product(PolymorphicModel):
     desc = models.TextField(blank=True, null=True)
     # class Meta:
     #     abstract = True
+    #This is for Chris
+
 
 
 class BulkProduct(Product):
