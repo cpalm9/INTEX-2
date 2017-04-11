@@ -1,0 +1,7 @@
+.comment_form .text-center > button {
+    background-color: #00a0dc;
+}
+
+.comment_form .text-center > button:hover {
+    background-color: #333;
+}

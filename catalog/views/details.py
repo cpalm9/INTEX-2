@@ -5,6 +5,7 @@ from account import models as amod
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import permission_required, login_required
 from django import forms
+from django.core.validators import MinValueValidator
 from formlib.form import FormMixIn
 from decimal import Decimal
 
@@ -35,17 +36,15 @@ def process_request(request):
     history.product = product
     history.save()
 
+    comments =  cmod.ProductComment.objects.filter(product_id=product.id)
+    print(comments)
 
-
-    #add to the last 5 viewed items
-    #check to see if product is already in list
-    # if [product.name, product.id] not in request.last5:
-    #     request.last5.insert(0, [product.name, product.id])
-    # else:
-    #     request.last5.insert(0, request.last5.pop(request.last5.index([product.name, product.id])))
-    #
-    # while len(request.last5) > 5:
-    #     request.last5.pop()
+    comment_form = CommentForm(request)
+    print('HERE')
+    if comment_form.is_valid():
+        print('FORM CHECKS OUT')
+        comment_form.commit(product=product)
+        return HttpResponseRedirect('/catalog/details/' + str(product.id))
 
     form = BuyNowForm(request, product=product)
     if form.is_valid():
@@ -58,6 +57,8 @@ def process_request(request):
         'product': product,
         'productImage': productImage,
         'form': form,
+        'comments': comments,
+        'comment_form': comment_form,
 
     }
 
@@ -72,7 +73,7 @@ class BuyNowForm(FormMixIn, forms.Form):
     def init(self, product):
         # fields
         if hasattr(product, 'quantity'):
-            self.fields['quantity'] = forms.IntegerField(required=False)
+            self.fields['quantity'] = forms.IntegerField(required=False, validators=[MinValueValidator(1)], initial=1)
 
     def clean(self):
 
@@ -134,6 +135,21 @@ class BuyNowForm(FormMixIn, forms.Form):
                 cartItem.extended_amount = product.price
             cartItem.save()
 
-        # connect the request object and the user object
-        # ret = stripe.Charge.create(... inc token id)
-        # record_sale(charge_token, self.request.user...)
+class CommentForm(FormMixIn, forms.Form):
+    form_submit = 'Post Comment'
+    form_id = 'comment_form'
+
+    def init(self):
+        self.fields['comment'] = forms.CharField(label='', max_length=100, required=True)
+
+    def clean_comment(self):
+        comment = self.cleaned_data.get('comment')
+        return self.cleaned_data
+    
+    def commit(self, product):
+        print('COMMIT')
+        new_comment = cmod.ProductComment()
+        new_comment.comment = self.data.get('comment')
+        new_comment.product_id = product.id
+        new_comment.user_id = self.request.user.id
+        new_comment.save()

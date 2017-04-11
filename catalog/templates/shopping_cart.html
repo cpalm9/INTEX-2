@@ -8,8 +8,11 @@
     <div>
 
         % if not products:
+            <div class="empty_cart">
             <p>Your cart is empty!</p>
-            <a href="/catalog/index/" class="btn btn-danger btn-sm">Continue Shopping</a>
+            </br>
+            <a href="/catalog/index/" id="continue_shopping" class="btn btn-default btn-lg">Continue Shopping</a>
+            </div>
         %else:
 
         <div class="checkout">

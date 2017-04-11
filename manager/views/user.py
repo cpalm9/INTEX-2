@@ -42,12 +42,13 @@ def process_request(request):
         form.commit(user)
         return HttpResponseRedirect('/manager/users/')
 
-
+    create = False
 
     #render the template
     context = {
         'user': user,
         'form': form,
+        'create': create,
     }
 
 
@@ -55,9 +56,6 @@ def process_request(request):
 
 
 class EditUserForm (FormMixIn, forms.Form):
-
-
-
 
     def init(self, user):
         self.fields['username'] = forms.CharField(label='Username', max_length=100)
@@ -103,15 +101,21 @@ def create(request):
 
     # process the form
     form = CreateForm(request)
+    user = request.user
 
     if form.is_valid():
         form.commit()
         return HttpResponseRedirect('/manager/users/')
 
+    create = True
+
     # render the template
     context = {
         'form': form,
+        'user': user,
+        'create': create,
     }
+
 
     return dmp_render(request, 'user.html', context)
 
