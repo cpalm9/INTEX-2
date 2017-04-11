@@ -210,6 +210,12 @@ pp1.product = bp1
 pp1.path = '/static/homepage/media/images/instruments/accessories/bassoon_reed.png'
 pp1.save()
 
+pc1 = cmod.ProductComment()
+pc1.product_id = 1
+pc1.comment = 'Love this instrument!'
+pc1.user_id = 1
+pc1.save()
+
 bp2 = cmod.BulkProduct()
 bp2.category = cat4
 bp2.name = 'Drum Sticks'

@@ -18,3 +18,13 @@ table,th,td{
     padding:0; margin:0;
     text-align: right;
 }
+
+.empty_cart {
+    text-align: center;
+    font-size: large;
+    padding-top: 3%;
+}
+
+#continue_shopping {
+    
+}

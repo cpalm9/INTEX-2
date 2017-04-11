@@ -3,6 +3,7 @@
 <title><%block name="head_title">Details Page</%block></title>
 
 <%! from catalog import models as cmod %>
+<%! from account import models as amod %>
 
 <%block name="content">
 
@@ -46,7 +47,7 @@
 					  <div class="cost">
 						 <div class="prdt-cost">
 							 <ul>
-								 <li>Sellling Price:</li>
+								 <li>Selling Price:</li>
 								 <li class="active">$${ product.price }</li>
 								 <div id="purchase_container">
 
@@ -69,6 +70,28 @@
 					 </div>
 				  </div>
 				  <div class="clearfix"></div>
+
+				<div class="single-bottom1">
+					<h6>Comments</h6>
+						% if user.is_authenticated:
+						<div class="comment_form" style="padding-top: 20px;">
+							<p>${ comment_form }</p>
+						</div>
+						% else:
+						<p style="text-align:center; padding:15px;">Plase login to leave a comment!</p>
+						% endif
+						<div id="comment_block">
+							% for comment in comments:
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<b><i>${ amod.FomoUser.objects.get(id=comment.user_id).username }</b></i> - ${ comment.comment }</br>
+									<i style="color:lightgray; font-size:11px;">(${ comment.date.strftime("%Y-%m-%d %H:%M:%S") })</i>
+								</div>
+							</div>
+							% endfor
+						</div>
+				</div>
+
 		  <!---->
 	  </div>
          <div class="rsidebar span_1_of_left">
