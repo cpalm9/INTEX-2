@@ -94,7 +94,6 @@ class CreateForm(FormMixIn, forms.Form):
     TYPE_CHOICES = [
         ['bulk' , 'Bulk Product'],
         ['unique' , 'Unique Product'],
-        ['rental' ,  'Rental Product'],
     ]
 
 

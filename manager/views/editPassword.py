@@ -36,8 +36,8 @@ def process_request(request):
 class EditPasswordForm(FormMixIn, forms.Form):
 
     def init(self, user):
-        self.fields['new_password'] = forms.CharField(widget=forms.PasswordInput())
-        self.fields['new_password2'] = forms.CharField(widget=forms.PasswordInput())
+        self.fields['new_password'] = forms.CharField(label="New Password", widget=forms.PasswordInput())
+        self.fields['new_password2'] = forms.CharField(label="Confirm New Password", widget=forms.PasswordInput())
 
 
 

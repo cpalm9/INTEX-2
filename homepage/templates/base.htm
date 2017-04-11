@@ -11,11 +11,12 @@
     <link href="${ STATIC_URL }homepage/media/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="${ STATIC_URL }homepage/media/js/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Custom Theme files -->
     <!--theme-style-->
     <link href="${ STATIC_URL }homepage/media/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!--//theme-style-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -30,9 +31,9 @@
     <!-- start menu -->
     <link href="${ STATIC_URL }homepage/media/css/memenu.css" rel="stylesheet" type="text/css" media="all"/>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="${ STATIC_URL }homepage/media/js/jquery.datetimepicker.full.js"></script>
-    <script src="${ STATIC_URL }homepage/media/js/jquery.loadmodal.js"></script>
+    
     <script src="${ STATIC_URL }homepage/media/js/jquery.form.js"></script>
+    <script src="${ STATIC_URL }homepage/media/js/jquery.loadmodal.js"></script>
     <!--<script>$(document).ready(function () {
         $(".memenu").memenu();
     });</script>-->
@@ -63,6 +64,7 @@
                         <li class="top_link"><a href="/account/index/">My Account</a></li>
                         <li class="top_link"><a href="/account/logout/">Logout</a></li>
                         % else:
+                        <li class="top_link" style="cursor: pointer;"><a href="/account/signup/">Sign Up</a></li>
                         <li class="top_link" style="cursor: pointer;"><a id="modallogin_button">Login</a></li>
                         % endif
                     </ul>

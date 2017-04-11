@@ -1,8 +1,25 @@
-<%inherit file="base.htm" />
+<%inherit file="app_base.htm" />
+
+<%block name="head_title">Manager Page</%block>
 
 <%block name="content">
     <div class="content">
-        <h3>Congratulations -- you've successfully created a new django-mako-plus app!</h3>
-        <h4>Next Up: Go through the django-mako-plus tutorial and add Javascript, CSS, and urlparams to this page.</h4>
+        <div class="banner">
+            <div id="user_menu">
+                <ul>
+                    <div class="container">
+                        <div class="ftr-grids">
+                            <div class="col-md-5 ftr-grid" style="float:right;">
+                                <h4>Welcome to the Managers' page, ${ user.first_name }!</h4>
+                                <ul>
+                                    <li><a href="/manager/products">View Products</a></li>
+                                    <li><a href="/manager/users/">View Users</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
     </div>
 </%block>

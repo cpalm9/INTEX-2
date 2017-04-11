@@ -45,6 +45,12 @@
                     <li class="grid ${ 'active' if request.dmp_router_page == 'about' else '' }"><a href="/about/">About</a></li>
                     <li class="grid ${ 'active' if request.dmp_router_page == 'contact' else '' }"><a href="/contact/">Contact</a></li>
                     <li class="grid ${ 'active' if request.dmp_router_page == 'FAQ' else '' }"><a href="/FAQ/">FAQ</a></li>
+                    % try:
+                        % if request.user.groups.get(name='Admin'):
+                        <li class="grid ${ 'active' if request.dmp_router_page == '/manager/index' else '' }"><a href="/manager/index">Manager</a></li>
+                        % endif
+                    % except:
+                    % endtry
                 </ul>
                 <div class="clearfix"></div>
             </div>

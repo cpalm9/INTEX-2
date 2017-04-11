@@ -1,16 +1,18 @@
 <%inherit file="app_base.htm" />
 
+<%block name="head_title">Account Page</%block>
+
 <%block name="content">
     <div class="content">
         <div id="user_menu">
           <ul>
             <div class="container">
               <div class="ftr-grids">
-                <div class="col-md-3 ftr-grid">
-                  <h4>Welcome, ${ user.first_name }!</h4>
+                <div class="col-md-5 ftr-grid">
+                  <h4>Welcome to your account, ${ user.first_name }!</h4>
                     <ul>
-                      <li><a href="/account/editAccount/${ user.id }">Personal Informaion</a></li>
-                      <li><a href="/account/editPassword/${ user.id }">Update Password</a></li>
+                      <li><a href="/account/editAccount/${ request.user.id }">Personal Information</a></li>
+                      <li><a href="/account/editPassword/${ request.user.id }">Update Password</a></li>
                     </ul>
                 </div>
               </div>
