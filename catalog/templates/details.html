@@ -2,83 +2,138 @@
 
 <title><%block name="head_title">Details Page</%block></title>
 
+<%! from catalog import models as cmod %>
+
 <%block name="content">
 
-    <div class="row" id="middleRow">
-        <div class="col-md-6">
-            <div id="images">
-                <a href="" class="modalPics"><img src="/static/catalog/media/productImages/${product.name.replace(" ", "")}.png/"></a>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div id="detailPanel">
-                <div class="panel panel-default">
-                    <div class="panel-body text-center">
-                        <h3>${ product.name }</h3>
-                        <div class="text-left">
-                            <ul>
-                                <li>Brand: ${ product.brand }</li>
-                                <li>Category: ${ product.category }</li>
+    <div class="single-sec">
+	 <div class="container">
+		 <ol class="breadcrumb">
+			 <li><a href="/catalog/">Catalog</a></li>
+			 <li class="active">Products</li>
+		 </ol>
+		 <!-- start content -->
+		 <div class="col-md-9 det">
+				 <div class="single_left">
+					 <div class="flexslider">
+							<ul class="slides">
+                                % for p in productImage:
+                                    <li data-thumb=${ p.path }>
+									    <img src=${ p.path }/>
+								    </li>
+                                % endfor
+							</ul>
+						</div>
+						<!-- FlexSlider -->
+						  <script defer src="${ STATIC_URL }homepage/media/js/jquery.flexslider.js"></script>
+						<link rel="stylesheet" href="${ STATIC_URL }homepage/media/css/flexslider.css" type="text/css" media="screen" />
 
-                                %if hasattr(product, 'serial_number'):
-                                     <li>Serial Number: ${ product.serial_number }</li>
-                                %endif
+							<script>
+						// Can also be used with $(document).ready()
+						$(window).load(function() {
+						  $('.flexslider').flexslider({
+							animation: "slide",
+							controlNav: "thumbnails"
+						  });
+						});
+						</script>
+				 </div>
+				  <div class="single-right">
+					 <h3>${ product.name }</h3>
+                      %if hasattr(product, 'serial_number'):
+					    <div class="id"><h4>ID: ${ product.serial_number }</h4></div>
+                      %endif
+					  <div class="cost">
+						 <div class="prdt-cost">
+							 <ul>
+								 <li>Sellling Price:</li>
+								 <li class="active">$${ product.price }</li>
+								 <a href="#">BUY NOW</a>
+							 </ul>
+						 </div>
+						 <div class="check">
+							 <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>Enter pin code for delivery & availability</p>
+							 <form class="navbar-form navbar-left" role="search">
+								  <div class="form-group">
+									<input type="text" class="form-control" placeholder="Enter Pin code">
+								  </div>
+								  <button type="submit" class="btn btn-default">Verify</button>
+							 </form>
+						 </div>
+						 <div class="clearfix"></div>
+					  </div>
+					  <div class="item-list">
+						 <ul>
+							 <li>Material: Silver,Gold</li>
+							 <li>Color: Red</li>
+							 <li>Type: Earring & Pendant Set</li>
+							 <li>Brand: American Diamond</li>
+							 <li><a href="#">Click here for more details</a></li>
+						 </ul>
+					  </div>
+					  <div class="single-bottom1">
+						<h6>Details</h6>
+						<p class="prod-desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam. Ut wisi enim ad minim veniam iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+					 </div>
+				  </div>
+				  <div class="clearfix"></div>
+		  <!---->
+	  </div>
+         <div class="rsidebar span_1_of_left">
+            <section  class="sky-form">
+                <div class="product_right">
+                    <h4 style="margin-bottom: 10px;"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Recently Viewed Items</h4>
+                         <div id="lastFive">
+                          % try:
+                             % for h in cmod.ShoppingHistory.objects.filter(user=request.user).order_by('date_viewed'):
 
-                            </ul>
-                        </div>
-                        <div>
-                            Sale Price: $${ product.price }
+                                 <%
 
-                        </div>
+                                     if [h.product.name, h.product.id] not in request.last5:
+                                        request.last5.insert(0, [h.product.name, h.product.id])
+                                     else:
+                                        request.last5.insert(0, request.last5.pop(request.last5.index([h.product.name, h.product.id])))
 
-                        %if hasattr(product, 'active'):
-                            %if product.active == False:
-                                <p style="background-color: red">Sorry this product is no longer in stock</p>
-                                <button type="button" class="btn btn-primary disabled">Add to Cart</button>
-                            %else:
-                                <div id="purchase_container">
+                                 %>
 
-                                    ${ form }
+                             % endfor
 
+                            % for x,y in request.last5[:5]:
+                                <div class="text-center">
+                                    <a href="/catalog/details/${ y }"><img style="width: 100px;" src=${ cmod.Product.objects.get(name=x).path } ></a>
+                                    <div style="margin-bottom: 15px;">
+                                        ${ x }
+                                    </div>
                                 </div>
-                            %endif
+                             % endfor
+                        % except:
+                            % for h in cmod.ShoppingHistory.objects.filter(user=None).order_by('date_viewed'):
+                                <%
 
-                        %else:
-                            <div id="purchase_container">
+                                     if [h.product.name, h.product.id] not in request.last5:
+                                        request.last5.insert(0, [h.product.name, h.product.id])
+                                     else:
+                                        request.last5.insert(0, request.last5.pop(request.last5.index([h.product.name, h.product.id])))
 
-                                ${ form }
+                                 %>
 
-                            </div>
-                        %endif
+                             % endfor
 
+                            % for x,y in request.last5[:5]:
+                                <div class="text-center">
+                                    <a href="/catalog/details/${ y }"><img style="width: 100px;" src=${ cmod.Product.objects.get(name=x).path } ></a>
+                                    <div>
+                                        ${ x }
+                                    </div>
+                                </div>
+                             % endfor
+                        % endtry
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="exampleModalLabel"></h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <img src=${ productImage[0].path }>
-            <img src=${ productImage[1].path }>
-            <img src=${ productImage[2].path }>
-          </div>
-          <div class="modal-footer">
-              <button id="previousBtn" class="btn btn-danger">Previous</button>
-              <button id="nextBtn" class="btn btn-danger">Next</button>
-          </div>
-        </div>
-      </div>
-    </div>
+             </section>
+         </div>
+         <div class="clearfix"></div>
+</div>
 
 
 </%block>
