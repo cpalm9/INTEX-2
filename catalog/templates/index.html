@@ -126,7 +126,7 @@
                                  % endfor
 
                                 % for x,y in request.last5[:5]:
-                                    <div class="text-center">
+                                    <div id="last5" class="text-center">
                                         <a href="/catalog/details/${ y }"><img style="width: 100px;" src=${ cmod.Product.objects.get(name=x).path } ></a>
                                         <div style="margin-bottom: 25px;">
                                             ${ x }

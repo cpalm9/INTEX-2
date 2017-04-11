@@ -32,10 +32,10 @@ class ContactForm(FormMixIn, forms.Form):
 
 
     def init(self):
-        self.fields['name'] = forms.CharField(label='Name', max_length=100)
-        self.fields['email'] = forms.EmailField(label='Email', max_length=100)
+        self.fields['name'] = forms.CharField(label='Name', max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        self.fields['email'] = forms.EmailField(label='Email', max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
         self.fields['subject'] = forms.ChoiceField(label='Subject', choices=ContactForm.SUBJECT_CHOICES)
-        self.fields['message'] = forms.CharField(label='Message', max_length=1000, widget=forms.Textarea())
+        self.fields['message'] = forms.CharField(label='Message', max_length=1000, widget=forms.Textarea(attrs={'class': 'form-control'}))
 
     def clean_name(self):
         name = self.cleaned_data.get('name')
