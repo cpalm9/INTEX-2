@@ -216,6 +216,18 @@ pc1.comment = 'Love this instrument!'
 pc1.user_id = 1
 pc1.save()
 
+pc1 = cmod.ProductComment()
+pc1.product_id = 29
+pc1.comment = 'What a fun product'
+pc1.user_id = 2
+pc1.save()
+
+pc1 = cmod.ProductComment()
+pc1.product_id = 29
+pc1.comment = 'I know right?'
+pc1.user_id = 3
+pc1.save()
+
 bp2 = cmod.BulkProduct()
 bp2.category = cat4
 bp2.name = 'Drum Sticks'
