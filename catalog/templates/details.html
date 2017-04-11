@@ -48,32 +48,24 @@
 							 <ul>
 								 <li>Sellling Price:</li>
 								 <li class="active">$${ product.price }</li>
-								 <a href="#">BUY NOW</a>
+								 <div id="purchase_container">
+
+                                    ${ form }
+
+                                </div>
 							 </ul>
-						 </div>
-						 <div class="check">
-							 <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>Enter pin code for delivery & availability</p>
-							 <form class="navbar-form navbar-left" role="search">
-								  <div class="form-group">
-									<input type="text" class="form-control" placeholder="Enter Pin code">
-								  </div>
-								  <button type="submit" class="btn btn-default">Verify</button>
-							 </form>
 						 </div>
 						 <div class="clearfix"></div>
 					  </div>
 					  <div class="item-list">
 						 <ul>
-							 <li>Material: Silver,Gold</li>
-							 <li>Color: Red</li>
-							 <li>Type: Earring & Pendant Set</li>
-							 <li>Brand: American Diamond</li>
-							 <li><a href="#">Click here for more details</a></li>
+							 <li>Type: ${ product.category }</li>
+							 <li>Brand: ${ product.brand }</li>
 						 </ul>
 					  </div>
 					  <div class="single-bottom1">
 						<h6>Details</h6>
-						<p class="prod-desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam. Ut wisi enim ad minim veniam iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+						<p class="prod-desc">${ product.desc }</p>
 					 </div>
 				  </div>
 				  <div class="clearfix"></div>
@@ -101,7 +93,7 @@
                             % for x,y in request.last5[:5]:
                                 <div class="text-center">
                                     <a href="/catalog/details/${ y }"><img style="width: 100px;" src=${ cmod.Product.objects.get(name=x).path } ></a>
-                                    <div style="margin-bottom: 15px;">
+                                    <div style="margin-bottom: 25px;">
                                         ${ x }
                                     </div>
                                 </div>
@@ -122,7 +114,7 @@
                             % for x,y in request.last5[:5]:
                                 <div class="text-center">
                                     <a href="/catalog/details/${ y }"><img style="width: 100px;" src=${ cmod.Product.objects.get(name=x).path } ></a>
-                                    <div>
+                                    <div style="margin-bottom: 25px;">
                                         ${ x }
                                     </div>
                                 </div>

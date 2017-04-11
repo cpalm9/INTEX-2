@@ -36,3 +36,15 @@ def delete(request):
 
     product.delete()
     return HttpResponseRedirect('/catalog/shopping_cart/')
+
+
+@view_function
+def delete_all(request):
+    try:
+        product = cmod.ShoppingCartItems.objects.all()
+
+    except cmod.ShoppingCartItems.DoesNotExist:
+        return HttpResponseRedirect('/catalog/index/')
+
+    product.delete()
+    return HttpResponseRedirect('/catalog/index/')

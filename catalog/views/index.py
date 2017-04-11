@@ -22,3 +22,4 @@ def process_request(request):
     }
 
     return dmp_render(request, 'index.html', context)
+

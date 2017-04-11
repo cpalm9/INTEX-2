@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 
 from django.db import models
 from catalog import models as cmod
+from decimal import Decimal
 import random
 
 
@@ -35,3 +36,15 @@ class FomoUser(AbstractUser):
         return counter
 
 
+    def get_cart_total(self):
+        cart_count = cmod.ShoppingCartItems.objects.filter(user_id=self.id)
+
+        counter = 0
+
+        for c in cart_count:
+            if hasattr(c.product, 'quantity'):
+                counter += Decimal(Decimal(c.quantity) * Decimal(c.product.price))
+            else:
+                counter += Decimal(c.product.price)
+
+        return Decimal(counter)

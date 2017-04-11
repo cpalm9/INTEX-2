@@ -27,10 +27,10 @@
 						<div class="product-info simpleCart_shelfItem">
 							<div class="product-info-cust prt_name">
 								<h4>${ p.name }</h4>
-								<p>ID: SR4598</p>
-								<span class="item_price">$${ p.price }</span>
-								<input type="text" class="item_quantity" value="1" />
-								<input type="button" class="item_add items" value="ADD">
+                                <div class="item_price"><strong>$${ p.price }</strong></div>
+                               <div class="text-center">
+                                    <a href="/catalog/details/${ p.id }/" class="btn btn-info" role="button" style="background-color: #00a0dc;">Shop Now</a>
+                                </div>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -40,36 +40,43 @@
 			<div class="rsidebar span_1_of_left">
 				 <section  class="sky-form" style="margin-bottom: 30px;">
 					 <div class="product_right">
-                         <a href="/catalog/index/"> <h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Categories</h4></a>
+                         <h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Categories</h4>
 						 <div class="tab1">
+							 <a href="/catalog/index/"><ul class="place">
+								 <li class="sort">All Products</li>
+								 <li class="by"><img src="/static/homepage/media/images/do.png" alt=""></li>
+									<div class="clearfix"> </div>
+                             </ul></a>
+					      </div>
+                         <div class="tab2">
 							 <a href="/catalog/index/1"><ul class="place">
 								 <li class="sort">Brass</li>
 								 <li class="by"><img src="/static/homepage/media/images/do.png" alt=""></li>
 									<div class="clearfix"> </div>
                              </ul></a>
 					      </div>
-						  <div class="tab2">
+						  <div class="tab3">
 							  <a href="/catalog/index/5"><ul class="place">
 								 <li class="sort">Percussion</li>
 								 <li class="by"><img src="/static/homepage/media/images/do.png" alt=""></li>
 									<div class="clearfix"> </div>
                               </ul></a>
 					      </div>
-						  <div class="tab3">
+						  <div class="tab4">
 							  <a href="/catalog/index/2"><ul class="place">
 								 <li class="sort">Woodwind</li>
 								 <li class="by"><img src="/static/homepage/media/images/do.png" alt=""></li>
 									<div class="clearfix"> </div>
                               </ul></a>
 					      </div>
-						  <div class="tab4">
+						  <div class="tab5">
 							 <a href="/catalog/index/3"> <ul class="place">
 								 <li class="sort">Strings</li>
 								 <li class="by"><img src="/static/homepage/media/images/do.png" alt=""></li>
 									<div class="clearfix"> </div>
                              </ul></a>
 					      </div>
-						  <div class="tab5">
+						  <div class="tab6">
 							 <a href="/catalog/index/4"> <ul class="place">
 								 <li class="sort">Accessories</li>
 								 <li class="by"><img src="/static/homepage/media/images/do.png" alt=""></li>
@@ -100,7 +107,7 @@
                                 % for x,y in request.last5[:5]:
                                     <div class="text-center">
                                         <a href="/catalog/details/${ y }"><img style="width: 100px;" src=${ cmod.Product.objects.get(name=x).path } ></a>
-                                        <div style="margin-bottom: 15px;">
+                                        <div style="margin-bottom: 25px;">
                                             ${ x }
                                         </div>
                                     </div>
@@ -121,7 +128,7 @@
                                 % for x,y in request.last5[:5]:
                                     <div class="text-center">
                                         <a href="/catalog/details/${ y }"><img style="width: 100px;" src=${ cmod.Product.objects.get(name=x).path } ></a>
-                                        <div>
+                                        <div style="margin-bottom: 25px;">
                                             ${ x }
                                         </div>
                                     </div>

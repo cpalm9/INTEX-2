@@ -9,7 +9,6 @@ from formlib.form import FormMixIn
 from decimal import Decimal
 
 @view_function
-@login_required
 def process_request(request):
     #pull product from the db
 
