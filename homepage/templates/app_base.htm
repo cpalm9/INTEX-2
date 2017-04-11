@@ -60,7 +60,7 @@
                     <a href="/catalog/shopping_cart/">
                         <h3>
                             <div class="total">
-                                <span id="simpleCart_total">$${ request.user.get_cart_total() }</span> (<span id="simpleCart_quantity"
+                                <span id="simpleCart_total">${ request.user.get_cart_total() }</span> (<span id="simpleCart_quantity"
                                                                               class="simpleCart_quantity">${ request.user.get_cart_count() }</span>)
                             </div>
                             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></h3>
