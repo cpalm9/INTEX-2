@@ -8,11 +8,13 @@ from django import forms
 from formlib.form import FormMixIn
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import Permission
+from django.contrib.auth.decorators import permission_required, login_required
 
 from .. import dmp_render, dmp_render_to_string
 
 
 @view_function
+@permission_required('catalog.add_bulkproduct', login_url='/account/index/')
 def process_request(request):
     user = request.user
 
