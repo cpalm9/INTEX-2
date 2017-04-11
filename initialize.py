@@ -202,6 +202,7 @@ bp1.quantity = 20
 bp1.reorder_trigger = 5
 bp1.reorder_qty = 15
 bp1.path = '/static/homepage/media/images/instruments/accessories/bassoon_reed.png'
+bp1.desc = "The Singin' Dog Reed is designed for young students or beginners. Medium soft. Hand finished."
 bp1.save()
 
 pp1 = cmod.ProductPicture()
@@ -218,6 +219,7 @@ bp2.quantity = 15
 bp2.reorder_trigger = 5
 bp2.reorder_qty = 10
 bp2.path = '/static/homepage/media/images/instruments/accessories/drum_sticks.png'
+bp2.desc = "The Pro Mark Drumsticks are quality, balanced sticks made from hand-selected hickory. Hickory offers a great feel with a little bit of flex."
 bp2.save()
 
 pp2 = cmod.ProductPicture()
@@ -234,6 +236,7 @@ bp3.quantity = 10
 bp3.reorder_trigger = 5
 bp3.reorder_qty = 5
 bp3.path = '/static/homepage/media/images/instruments/accessories/electric_guitar_strings1.png'
+bp3.desc = "Ernie Ball Slinky guitar strings are made from nickel-plated steel. They produce a well-balanced all-around good sound."
 bp3.save()
 
 pp3 = cmod.ProductPicture()
@@ -255,6 +258,7 @@ bp4.quantity = 10
 bp4.reorder_trigger = 5
 bp4.reorder_qty = 5
 bp4.path = '/static/homepage/media/images/instruments/accessories/guitar_amp.png'
+bp4.desc = "The Marshall guitar amp is a tube combo amplifier that is described as a sturdy, all-tube, gig-ready 40-watt workhorse."
 bp4.save()
 
 pp5 = cmod.ProductPicture()
@@ -271,6 +275,7 @@ bp5.quantity = 10
 bp5.reorder_trigger = 5
 bp5.reorder_qty = 5
 bp5.path = '/static/homepage/media/images/instruments/accessories/guitar_picks.png'
+bp5.desc = "These Fender picks has a special wide body and rounded tip that have become a favorite pick of all types of guitar players."
 bp5.save()
 
 pp6 = cmod.ProductPicture()
@@ -297,6 +302,7 @@ bp6.quantity = 10
 bp6.reorder_trigger = 5
 bp6.reorder_qty = 5
 bp6.path = '/static/homepage/media/images/instruments/accessories/guitar_strap1.png'
+bp6.desc = 'The length adjusts from 38" to 68" so anyone can find a comfortable height. This product features a 2" wide Polypropylene webbing material.'
 bp6.save()
 
 pp9 = cmod.ProductPicture()
@@ -323,6 +329,7 @@ bp7.quantity = 10
 bp7.reorder_trigger = 5
 bp7.reorder_qty = 5
 bp7.path = '/static/homepage/media/images/instruments/accessories/guitar_strings1.png'
+bp7.desc = "These strings are sheathed in a thin polymer coating that retains a natural feel while protecting it from the gunk that shortens their lives."
 bp7.save()
 
 pp12 = cmod.ProductPicture()
@@ -344,6 +351,7 @@ bp8.quantity = 10
 bp8.reorder_trigger = 5
 bp8.reorder_qty = 5
 bp8.path = '/static/homepage/media/images/instruments/accessories/guitar_tuner.png'
+bp8.desc = "This clip-on fully chromatic tuner quickly and accurately finds the note being played and indicates if you are in tune, sharp, or flat."
 bp8.save()
 
 pp14 = cmod.ProductPicture()
@@ -365,6 +373,7 @@ bp9.quantity = 10
 bp9.reorder_trigger = 5
 bp9.reorder_qty = 5
 bp9.path = '/static/homepage/media/images/instruments/accessories/music_stand.png'
+bp9.desc = "The steel bookplate on the conductor's stand has a return lip with a smooth tilting feature. The bookplate can also be removed from the vertical shaft."
 bp9.save()
 
 pp16 = cmod.ProductPicture()
@@ -391,6 +400,7 @@ bp10.quantity = 10
 bp10.reorder_trigger = 5
 bp10.reorder_qty = 5
 bp10.path = '/static/homepage/media/images/instruments/accessories/oboe_reed.png'
+bp10.desc = "Despite being made for students, the quality of these reeds will meet the meticulous expectations of most experienced players."
 bp10.save()
 
 pp19 = cmod.ProductPicture()
@@ -407,6 +417,7 @@ bp11.quantity = 10
 bp11.reorder_trigger = 5
 bp11.reorder_qty = 5
 bp11.path = '/static/homepage/media/images/instruments/accessories/saxophone_mouthpiece.png'
+bp11.desc = "Berg Larsen stainless steel mouthpieces are known for their increased life and diverse tonal quality."
 bp11.save()
 
 pp20 = cmod.ProductPicture()
@@ -423,6 +434,7 @@ bp12.quantity = 10
 bp12.reorder_trigger = 5
 bp12.reorder_qty = 5
 bp12.path = '/static/homepage/media/images/instruments/accessories/saxophone_reeds.png'
+bp12.desc = "The Alexander reeds are made of high-grade Southern France cane and have a redesigned tip and profile to project a big and bold sound."
 bp12.save()
 
 pp21 = cmod.ProductPicture()
@@ -439,6 +451,7 @@ bp13.quantity = 10
 bp13.reorder_trigger = 5
 bp13.reorder_qty = 5
 bp13.path = '/static/homepage/media/images/instruments/accessories/sheet_music_1.png'
+bp13.desc = "This is the original Bach music illustrated in a special format for ease of use and enjoyment."
 bp13.save()
 
 pp22 = cmod.ProductPicture()
@@ -465,6 +478,7 @@ bp14.quantity = 10
 bp14.reorder_trigger = 5
 bp14.reorder_qty = 5
 bp14.path = '/static/homepage/media/images/instruments/accessories/trumpet_mouthpiece.png'
+bp14.desc = "Bach mouthpieces are some of the most popular mouthpieces in the world for their special tone and design."
 bp14.save()
 
 pp25 = cmod.ProductPicture()
@@ -481,6 +495,7 @@ bp15.quantity = 10
 bp15.reorder_trigger = 5
 bp15.reorder_qty = 5
 bp15.path = '/static/homepage/media/images/instruments/accessories/trumpet_mute1.png'
+bp15.desc = "This special mute is created entirely from aluminum. It is a free-blowing mute that will not alter or change the pitch in any way."
 bp15.save()
 
 pp26 = cmod.ProductPicture()
@@ -501,6 +516,7 @@ up1.brand = 'Allora'
 up1.price = Decimal('1599.99')
 up1.serial_number = 'fh001'
 up1.path = '/static/homepage/media/images/instruments/brass/double_1.png'
+up1.desc = "This special French Horn combines both amazing performance an affordable price. Specially designed for excellent response and tone."
 up1.save()
 
 pp28 = cmod.ProductPicture()
@@ -520,6 +536,7 @@ up2.brand = 'B&S'
 up2.price = Decimal('2371.00')
 up2.serial_number = 'fh002'
 up2.path = '/static/homepage/media/images/instruments/brass/flugelhorn_1.png'
+up2.desc = "The B&S fluglehorn has a great value that produces a flexible and fat tone that all musicians seek."
 up2.save()
 
 pp30 = cmod.ProductPicture()
@@ -544,6 +561,7 @@ up3.brand = 'Prelude'
 up3.price = Decimal('1039.00')
 up3.serial_number = 'trb001'
 up3.path = '/static/homepage/media/images/instruments/brass/trombone_1.png'
+up3.desc = "The Prelude trombone is a high-quality student symphonic trombone that is appropriate for any type of music including smooth jazz and quick pop."
 up3.save()
 
 pp33 = cmod.ProductPicture()
@@ -568,6 +586,7 @@ up4.brand = 'Allora'
 up4.price = Decimal('599.99')
 up4.serial_number = 'tr001'
 up4.path = '/static/homepage/media/images/instruments/brass/trumpet_1.png'
+up4.desc = "This amazing instrument offers a professional-level quality at an affordable price. It is used in any type of music from concert to jazz."
 up4.save()
 
 pp36 = cmod.ProductPicture()
@@ -592,6 +611,7 @@ up5.brand = 'Amati'
 up5.price = Decimal('3259.00')
 up5.serial_number = 'tb001'
 up5.path = '/static/homepage/media/images/instruments/brass/tuba_1.png'
+up5.desc = "The Amatia Tuba is loved by tuba players worldwide for its round sound and consistent playability amoung all players."
 up5.save()
 
 pp39 = cmod.ProductPicture()
@@ -616,6 +636,7 @@ up6.brand = 'Rogue'
 up6.price = Decimal('199.99')
 up6.serial_number = 'bj001'
 up6.path = '/static/homepage/media/images/instruments/percussion/banjo_1.png'
+up6.desc = "The Rogue Banjo is known for its amazing sounds of the South at a great and low price."
 up6.save()
 
 pp41 = cmod.ProductPicture()
@@ -640,6 +661,7 @@ up7.brand = 'SPL'
 up7.price = Decimal('779.99')
 up7.serial_number = 'bdr001'
 up7.path = '/static/homepage/media/images/instruments/percussion/bass_drum1.png'
+up7.desc = "SPL Bass Drums provide a balanced tone with low-end projection to match that of the high frequencies produced by smaller drums."
 up7.save()
 
 pp44 = cmod.ProductPicture()
@@ -659,6 +681,7 @@ up8.brand = 'Zildijan'
 up8.price = Decimal('309.95')
 up8.serial_number = 'cy001'
 up8.path = '/static/homepage/media/images/instruments/percussion/cymball.png'
+up8.desc = "From the world leading brand for cymbals, Zildijian has created this cymbal that offers a sweet and crisp sound essential to any band."
 up8.save()
 
 pp46 = cmod.ProductPicture()
@@ -673,6 +696,7 @@ up9.brand = 'Zildijian'
 up9.price = Decimal('399.99')
 up9.serial_number = 'g001'
 up9.path = '/static/homepage/media/images/instruments/percussion/gong.png'
+up9.desc = "Hand-hammered and crafted to old-world specifications, the Zildijian Gong is specially created for a classic gong sound."
 up9.save()
 
 pp47 = cmod.ProductPicture()
@@ -687,6 +711,7 @@ up10.brand = 'Ludwig'
 up10.price = Decimal('849.00')
 up10.serial_number = 'sd001'
 up10.path = '/static/homepage/media/images/instruments/percussion/snare_drum1.png'
+up10.desc = "This snare drum features chrome metal shell construction that offers a bright, cutting, and crisp sound."
 up10.save()
 
 pp48 = cmod.ProductPicture()
@@ -706,6 +731,7 @@ up11.brand = 'Tama'
 up11.price = Decimal('429.99')
 up11.serial_number = 'td001'
 up11.path = '/static/homepage/media/images/instruments/percussion/tenor_drum1.png'
+up11.desc = "These special tenor drums feature 8-ply mahogany and beech shells that have a balanced warmth with punch and strength."
 up11.save()
 
 pp50 = cmod.ProductPicture()
@@ -720,6 +746,7 @@ up12.brand = 'Ludwig'
 up12.price = Decimal('1659.99')
 up12.serial_number = 'ti001'
 up12.path = '/static/homepage/media/images/instruments/percussion/timpani_1.png'
+up12.desc = "Ludwig Timpani drums are special drums that create a balanced and clean sound essential to every orchestra and symphony."
 up12.save()
 
 pp51 = cmod.ProductPicture()
@@ -744,6 +771,7 @@ up13.brand = 'Sound Percussion'
 up13.price = Decimal('499.99')
 up13.serial_number = 'x001'
 up13.path = '/static/homepage/media/images/instruments/percussion/xylophone.png'
+up13.desc = "This xylophone is an excellent choice for the beginning mallet player as well as a superior tool for home practice for the experienced player."
 up13.save()
 
 pp52 = cmod.ProductPicture()
@@ -758,6 +786,7 @@ up14.brand = 'Rogue'
 up14.price = Decimal('69.99')
 up14.serial_number = 'ag001'
 up14.path = '/static/homepage/media/images/instruments/string/acoustic_guitar_1.png'
+up14.desc = "The Rogue acoustic guitar is a perfect choice for the beginner or young musician. The tons produced by this instrument fill the room with a special sound."
 up14.save()
 
 pp53 = cmod.ProductPicture()
@@ -782,6 +811,7 @@ up15.brand = 'Stentor'
 up15.price = Decimal('1539.99')
 up15.serial_number = 'db001'
 up15.path = '/static/homepage/media/images/instruments/string/bass_1.png'
+up15.desc = "The Stentor Student double bass is made to a high standard and offers good playability at an affordable price."
 up15.save()
 
 pp56 = cmod.ProductPicture()
@@ -806,6 +836,7 @@ up16.brand = 'Fender'
 up16.price = Decimal('699.99')
 up16.serial_number = 'bg001'
 up16.path = '/static/homepage/media/images/instruments/string/bass_guitar_1.png'
+up16.desc = "This Fender guitar is for the modern bassist who demands a cutting-edge tone along with timeless style and a smooth, fast playing feel."
 up16.save()
 
 pp59 = cmod.ProductPicture()
@@ -830,6 +861,7 @@ up17.brand = 'Bellafina'
 up17.price = Decimal('799.99')
 up17.serial_number = 'ce001'
 up17.path = '/static/homepage/media/images/instruments/string/cello_1.png'
+up17.desc = "The Bellafina features a hand-select spruce top, maple back and sides, and an all-ebony fingerboard and pegs."
 up17.save()
 
 pp62 = cmod.ProductPicture()
@@ -854,6 +886,7 @@ up18.brand = 'Gibson'
 up18.price = Decimal('2269.00')
 up18.serial_number = 'eg001'
 up18.path = '/static/homepage/media/images/instruments/string/guitar_1.png'
+up18.desc = "This beautiful piece of art is created with Ultra-Modern weight technology that allows for comfortable play and greater sonic depth."
 up18.save()
 
 pp65 = cmod.ProductPicture()
@@ -878,6 +911,7 @@ up19.brand = 'Williams Allegro'
 up19.price = Decimal('299.99')
 up19.serial_number = 'xyz2'
 up19.path = '/static/homepage/media/images/instruments/string/piano_1.png'
+up19.desc = "The Williams Allegro keyboard is a full-size digital piano with 88 hammer action weighted keys and a brilliant new custom sound library."
 up19.save()
 
 pp68 = cmod.ProductPicture()
@@ -902,6 +936,7 @@ up20.brand = 'Ren Wei Shi'
 up20.price = Decimal('599.99')
 up20.serial_number = 'va001'
 up20.path = '/static/homepage/media/images/instruments/string/viola_1.png'
+up20.desc = "This instrument was designed to offer a solid foundation to the advancing player but still at an affordable price."
 up20.save()
 
 pp71 = cmod.ProductPicture()
@@ -926,6 +961,7 @@ up21.brand = 'Bellafina'
 up21.price = Decimal('199.99')
 up21.serial_number = 'vn001'
 up21.path = '/static/homepage/media/images/instruments/string/violin_1.png'
+up21.desc = "The Bellafina is a beautiful violin that starts with a hand-selected spruce top, maple back and sides, and an all-ebony fingerboard and pegs."
 up21.save()
 
 pp74 = cmod.ProductPicture()
@@ -950,6 +986,7 @@ up22.brand = 'Etude'
 up22.price = Decimal('149.99')
 up22.serial_number = 'ct001'
 up22.path = '/static/homepage/media/images/instruments/woodwind/clarient_1.png'
+up22.desc = "The Etude clarinet offers a sturdy construction with a classic look and sound."
 up22.save()
 
 pp77 = cmod.ProductPicture()
@@ -969,6 +1006,7 @@ up23.brand = 'Lyons Hummbucker'
 up23.price = Decimal('16.95')
 up23.serial_number = 'ek001'
 up23.path = '/static/homepage/media/images/instruments/woodwind/electric_kazoo.png'
+up23.desc = "This fun instrument is built with the best materials to create a great sound that can fill a concert hall."
 up23.save()
 
 pp79 = cmod.ProductPicture()
@@ -983,6 +1021,7 @@ up24.brand = 'Yamaha'
 up24.price = Decimal('1205.99')
 up24.serial_number = 'fl001'
 up24.path = '/static/homepage/media/images/instruments/woodwind/flute_1.png'
+up24.desc = "Yamaha flutes are designed from the outset as student instruments that accommodate the particular needs of a beginning player."
 up24.save()
 
 pp80 = cmod.ProductPicture()
@@ -1002,6 +1041,7 @@ up25.brand = 'Lee Oskar'
 up25.price = Decimal('37.99')
 up25.serial_number = 'har001'
 up25.path = '/static/homepage/media/images/instruments/woodwind/harmonica1.png'
+up25.desc = "This harmonica is well-suited for blues, rock, country, folk, and jazz. It is more airtight, easier to bend, and better sounding than any other competitor."
 up25.save()
 
 pp82 = cmod.ProductPicture()
@@ -1026,6 +1066,7 @@ up26.brand = 'Bulgheroni'
 up26.price = Decimal('5895.00')
 up26.serial_number = 'ob001'
 up26.path = '/static/homepage/media/images/instruments/woodwind/oboe_1.png'
+up26.desc = "The highest wood quality, heavily silver plated keys, artistic keywork along with magnificent tone make Bulgheroni instruments truly world class."
 up26.save()
 
 pp85 = cmod.ProductPicture()
@@ -1045,6 +1086,7 @@ up27.brand = 'Etude'
 up27.price = Decimal('299.99')
 up27.serial_number = 'sx001'
 up27.path = '/static/homepage/media/images/instruments/woodwind/sax_1.png'
+up27.desc = "This is the perfect instrument for a beginner. The keywork, pads, and adjustment all work together to make the tone more consistent and stronger."
 up27.save()
 
 pp87 = cmod.ProductPicture()

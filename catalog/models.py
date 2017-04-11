@@ -24,6 +24,7 @@ class Product(PolymorphicModel):
     create_date = models.DateTimeField(auto_now_add = True)
     modified_date = models.DateTimeField(auto_now = True)
     path = models.TextField(blank=True, null=True)
+    desc = models.TextField(blank=True, null=True)
     # class Meta:
     #     abstract = True
 
