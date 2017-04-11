@@ -8,58 +8,77 @@
     <div>
 
         % if not products:
-            <p>Your cart is empty homie!</p>
+            <p>Your cart is empty!</p>
             <a href="/catalog/index/" class="btn btn-danger btn-sm">Continue Shopping</a>
-
         %else:
 
-        <table class="topTable" style="width:100%">
-            <tr style="border-bottom: solid;">
-                <th>Image</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Extended Amount</th>
-                <th></th>
-            </tr>
+        <div class="checkout">
+             <div class="container">
+                 <ol class="breadcrumb">
+                  <li><a href="index.html">Home</a></li>
+                  <li class="active">Cart</li>
+                 </ol>
+                 <div class="col-md-9 product-price1">
+                     <div class="check-out">
+                         <div class=" cart-items">
+                             <h3>My Shopping Bag (${ request.user.get_cart_count() })</h3>
 
-            %for p in products:
+                             <div class="in-check text-center" >
+                                  <ul class="unit">
+                                    <li><span>Item</span></li>
+                                    <li><span>Name</span></li>
+                                      <li><span>Quantity</span></li>
+                                    <li><span>Extended Price</span></li>
+                                    <li> </li>
+                                    <div class="clearfix"> </div>
+                                  </ul>
 
-                <tr style="border-top: solid">
-                    <td><a href="/catalog/details/${ p.product.id }"><img id="productImage" src="/static/catalog/media/productImages/${p.product.name.replace(" ", "")}.png/"></a></td>
-                    <td><a href="/catalog/details/${ p.product.id }">${ p.product.name }</a></td>
-                    <td>$${ p.product.price }</td>
+                                 %for p in products:
+                                  <ul class="cart-header">
+                                    <li class="ring-in"><a href="/catalog/details/${ p.product.id }" ><img style="width: 80px;" src=${ p.product.path } class="img-responsive" alt=""></a>
+                                    </li>
+                                    <li><span>${ p.product.name }</span></li>
 
-                    %if hasattr(p.product, 'quantity'):
-                        <td>x${ p.quantity }</td>
-                    %else:
-                        <td>x1</td>
-                    %endif
+                                      %if hasattr(p.product, 'quantity'):
+                                          <li><span>x${ p.quantity }</span></li>
+                                      %else:
+                                          <li><span>x1</span></li>
+                                      %endif
 
-                    <td>$${ p.extended_amount }</td>
-                    <td><a id="deleteBtn" href="/catalog/shopping_cart.delete/${ p.id }/" class="btn btn-danger btn-sm">Remove from cart</a></td>
-                </tr>
-
-            %endfor
-        </table>
-        <table class="finance">
-            <tr class="finStuff" style="text-align: right;">
-                <td>Subtotal: $${ cmod.SaleItems.calc_subtotal() }</td>
-            </tr>
-            <tr class="finStuff">
-                <td>Tax: $${ cmod.SaleItems.calc_tax() }</td>
-            </tr>
-            <tr class="finStuff">
-                <td style="border-bottom: solid;">Shipping: $10</td>
-            </tr>
-            <tr class="finStuff">
-                <td>Total: $${ cmod.SaleItems.calc_total() }</td>
-            </tr>
-        </table>
-
-
-
-        <a id="ship_btn" href="/catalog/shipping/" class="btn btn-warning btn-lg" role="button">Enter Shipping Info</a>
+                                    <li><span>$${ p.extended_amount }</span></li>
+                                    <li> <a href="/catalog/shopping_cart.delete/${ p.id }/" class="add-cart cart-check">Remove From Cart</a></li>
+                                    <div class="clearfix"> </div>
+                                  </ul>
+                                 %endfor
+                             </div>
+                          </div>
+                     </div>
+                 </div>
+                 <div class="col-md-3 cart-total">
+                     <a class="continue" href="/catalog/index/">Continue Shopping</a>
+                     <div class="price-details">
+                         <h3>Price Details</h3>
+                         <span>SubTotal</span>
+                         <span class="total">$${ cmod.SaleItems.calc_subtotal() }</span>
+                         <span>Tax</span>
+                         <span class="total">$${ cmod.SaleItems.calc_tax() }</span>
+                         <span>Delivery Charges</span>
+                         <span class="total">$10.00</span>
+                         <div class="clearfix"></div>
+                     </div>
+                     <h4 class="last-price">TOTAL</h4>
+                     <span class="total final">$${ cmod.SaleItems.calc_total() }</span>
+                     <div class="clearfix"></div>
+                     <a class="order" href="#">Place Order</a>
+##                      <div class="total-item">
+##                          <h3>OPTIONS</h3>
+##                          <h4>COUPONS</h4>
+##                          <a class="cpns" href="#">Apply Coupons</a>
+##                          <p><a href="#">Log In</a> to use accounts - linked coupons</p>
+##                      </div>
+                    </div>
+             </div>
+        </div>
 
         %endif
 
