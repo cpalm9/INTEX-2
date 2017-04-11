@@ -8,7 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 
 @view_function
-@login_required
+@permission_required('catalog.add_bulkproduct', login_url='/account/index/')
 def process_request(request):
     #pull all users from the db
     users = amod.FomoUser.objects.order_by('first_name').all()
