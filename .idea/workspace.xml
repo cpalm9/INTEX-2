@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6388870e-6662-4259-9b27-c692e6179535" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/catalog/styles/shipping.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/catalog/styles/checkout.css" afterPath="$PROJECT_DIR$/catalog/styles/checkout.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/catalog/templates/checkout.html" afterPath="$PROJECT_DIR$/catalog/templates/checkout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/catalog/templates/shipping.html" afterPath="$PROJECT_DIR$/catalog/templates/shipping.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/catalog/templates/shopping_cart.html" afterPath="$PROJECT_DIR$/catalog/templates/shopping_cart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/catalog/views/checkout.py" afterPath="$PROJECT_DIR$/catalog/views/checkout.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/catalog/views/shipping.py" afterPath="$PROJECT_DIR$/catalog/views/shipping.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fomo/settings.py" afterPath="$PROJECT_DIR$/fomo/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/media/css/bootstrap.css" afterPath="$PROJECT_DIR$/homepage/media/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/templates/app_base.htm" afterPath="$PROJECT_DIR$/homepage/templates/app_base.htm" />
-    </list>
+    <list default="true" id="6388870e-6662-4259-9b27-c692e6179535" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +19,7 @@
         <entry file="file://$PROJECT_DIR$/catalog/templates/checkout.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="385">
-              <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding>
                 <element signature="e#807#833#0#HTML" expanded="true" />
                 <element signature="e#879#905#0#HTML" expanded="true" />
@@ -59,8 +47,22 @@
         <entry file="file://$PROJECT_DIR$/catalog/templates/shopping_cart.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
-              <caret line="37" column="182" lean-forward="false" selection-start-line="37" selection-start-column="102" selection-end-line="37" selection-end-column="182" />
-              <folding />
+              <caret line="40" column="182" lean-forward="false" selection-start-line="40" selection-start-column="102" selection-end-line="40" selection-end-column="182" />
+              <folding>
+                <marker date="1491951592000" expanded="true" signature="432:4007" ph="..." />
+                <marker date="1491951592000" expanded="true" signature="469:3992" ph="..." />
+                <marker date="1491951592000" expanded="true" signature="510:637" ph="..." />
+                <marker date="1491951592000" expanded="true" signature="692:2648" ph="..." />
+                <marker date="1491951592000" expanded="true" signature="737:2624" ph="..." />
+                <marker date="1491951592000" expanded="true" signature="788:2596" ph="..." />
+                <marker date="1491951592000" expanded="true" signature="944:2563" ph="..." />
+                <marker date="1491951592000" expanded="true" signature="997:1418" ph="..." />
+                <marker date="1491951592000" expanded="true" signature="1531:2486" ph="..." />
+                <marker date="1491951592000" expanded="true" signature="1588:1760" ph="..." />
+                <marker date="1491951592000" expanded="false" signature="1647:1659" ph="..." />
+                <marker date="1491951592000" expanded="true" signature="2699:3972" ph="..." />
+                <marker date="1491951592000" expanded="true" signature="2834:3340" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -797,7 +799,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
-            <marker date="1491942762000" expanded="true" signature="837:927" ph="..." />
+            <marker date="1491951592000" expanded="true" signature="837:927" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1045,7 +1047,7 @@
           <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
-            <marker date="1491942762000" expanded="true" signature="837:927" ph="..." />
+            <marker date="1491951592000" expanded="true" signature="837:927" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1117,8 +1119,22 @@
     <entry file="file://$PROJECT_DIR$/catalog/templates/shopping_cart.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="37" column="182" lean-forward="false" selection-start-line="37" selection-start-column="102" selection-end-line="37" selection-end-column="182" />
-          <folding />
+          <caret line="40" column="182" lean-forward="false" selection-start-line="40" selection-start-column="102" selection-end-line="40" selection-end-column="182" />
+          <folding>
+            <marker date="1491951592000" expanded="true" signature="432:4007" ph="..." />
+            <marker date="1491951592000" expanded="true" signature="469:3992" ph="..." />
+            <marker date="1491951592000" expanded="true" signature="510:637" ph="..." />
+            <marker date="1491951592000" expanded="true" signature="692:2648" ph="..." />
+            <marker date="1491951592000" expanded="true" signature="737:2624" ph="..." />
+            <marker date="1491951592000" expanded="true" signature="788:2596" ph="..." />
+            <marker date="1491951592000" expanded="true" signature="944:2563" ph="..." />
+            <marker date="1491951592000" expanded="true" signature="997:1418" ph="..." />
+            <marker date="1491951592000" expanded="true" signature="1531:2486" ph="..." />
+            <marker date="1491951592000" expanded="true" signature="1588:1760" ph="..." />
+            <marker date="1491951592000" expanded="false" signature="1647:1659" ph="..." />
+            <marker date="1491951592000" expanded="true" signature="2699:3972" ph="..." />
+            <marker date="1491951592000" expanded="true" signature="2834:3340" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1133,7 +1149,7 @@
     <entry file="file://$PROJECT_DIR$/catalog/templates/checkout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding>
             <element signature="e#807#833#0#HTML" expanded="true" />
             <element signature="e#879#905#0#HTML" expanded="true" />
