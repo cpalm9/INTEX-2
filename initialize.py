@@ -49,7 +49,6 @@ from django.contrib.auth.models import Permission, Group
 g1 = Group()
 g1.name = 'Admin'
 g1.save()
-
 for p in Permission.objects.all():
     g1.permissions.add(p)
 
@@ -57,11 +56,35 @@ for p in Permission.objects.all():
 g2 = Group()
 g2.name = 'Manager'
 g2.save()
-
-g2.permissions.add(Permission.objects.get(codename= 'add_logentry'))
+g2.permissions.add(Permission.objects.get(codename= 'add_fomouser'))
 g2.permissions.add(Permission.objects.get(codename= 'change_fomouser'))
-g2.permissions.add(Permission.objects.get(codename= 'delete_logentry'))
+g2.permissions.add(Permission.objects.get(codename= 'delete_fomouser'))
+g2.permissions.add(Permission.objects.get(codename= 'add_logentry'))
 g2.permissions.add(Permission.objects.get(codename= 'change_logentry'))
+g2.permissions.add(Permission.objects.get(codename= 'delete_logentry'))
+g2.permissions.add(Permission.objects.filter(codename= 'add_bulkproduct').first())
+g2.permissions.add(Permission.objects.filter(codename= 'change_bulkproduct').first())
+g2.permissions.add(Permission.objects.filter(codename= 'delete_bulkproduct').first())
+g2.permissions.add(Permission.objects.filter(codename= 'add_uniqueproduct').first())
+g2.permissions.add(Permission.objects.filter(codename= 'change_uniqueproduct').first())
+g2.permissions.add(Permission.objects.filter(codename= 'delete_uniqueproduct').first())
+
+g3 = Group()
+g3.name = 'Salesperson'
+g3.save()
+g3.permissions.add(Permission.objects.filter(codename=('add_fomouser')).first())
+g3.permissions.add(Permission.objects.filter(codename=('change_fomouser')).first())
+g3.permissions.add(Permission.objects.filter(codename=('delete_fomouser')).first())
+g3.permissions.add(Permission.objects.filter(codename=('change_bulkproduct')).first())
+g3.permissions.add(Permission.objects.filter(codename=('change_uniqueproduct')).first())
+
+g4 = Group()
+g4.name = 'End Users'
+g4.save()
+g3.permissions.add(Permission.objects.filter(codename=('add_fomouser')).first())
+g3.permissions.add(Permission.objects.filter(codename=('change_fomouser')).first())
+g3.permissions.add(Permission.objects.filter(codename=('delete_fomouser')).first())
+
 
 #create custom permissions
 # content_type = ContentType.objects.get_for_model(FomoUser)
@@ -131,7 +154,7 @@ u3.set_password('password3')
 u3.is_staff=True
 u3.save()
 
-u3.groups.add(g2)
+u3.groups.add(g3)
 
 u4 = amod.FomoUser()
 u4.username = 'u4'
@@ -148,7 +171,7 @@ u4.set_password('password4')
 u4.is_staff=True
 u4.save()
 
-u4.groups.add(g2)
+u4.groups.add(g4)
 # multiple queries
 
 # u1 = amod.objects.get(id = 1)
