@@ -4,7 +4,7 @@ $(function () {
 
     var handler = StripeCheckout.configure({
         key: 'pk_test_XSL2saGHkUJcJkOTk8PtVcwQ',
-        image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+        image: '/static/homepage/media/images/newlogo.png',
         locale: 'auto',
         token: function (token) {
             // You can access the token ID with `token.id`.

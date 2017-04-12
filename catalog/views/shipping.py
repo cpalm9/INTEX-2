@@ -100,7 +100,7 @@ class ShippingForm(FormMixIn, forms.Form):
             self.data['city'] = new_city
             self.data['state'] = new_state
             self.data['zipcode'] = new_zipcode
-            raise forms.ValidationError('We have made some changes please make sure it is correct.')
+            raise forms.ValidationError('We have made some changes please make sure it is correct and click submit again.')
 
         return self.cleaned_data
 

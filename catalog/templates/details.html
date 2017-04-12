@@ -50,9 +50,24 @@
 								 <li>Selling Price:</li>
 								 <li class="active">$${ product.price }</li>
 								 % if user.is_authenticated:
-								 <div id="purchase_container">
-                                    ${ form }
-                                </div>
+                                     %if hasattr(product, 'active'):
+                                         %if product.active == False:
+                                             <p style="color: red;">Sorry this product is no longer in stock</p>
+                                             <button type="button" class="btn btn-primary disabled">Add to Cart</button>
+                                         %else:
+                                             <div id="purchase_container">
+
+                                                 ${ form }
+
+                                             </div>
+                                         %endif
+                                     %else:
+                                         <div id="purchase_container">
+
+                                             ${ form }
+
+                                         </div>
+                                     %endif
 								% else:
 									<button type="button" class="btn btn-primary disabled">Add To Cart</button>
 									<p>&nbsp</p>
@@ -103,51 +118,55 @@
             <section  class="sky-form">
                 <div class="product_right">
                     <h4 style="margin-bottom: 10px;"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Recently Viewed Items</h4>
-                         <div id="lastFive">
-                          % try:
-                             % for h in cmod.ShoppingHistory.objects.filter(user=request.user).order_by('date_viewed'):
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="lastFive">
+                                  % try:
+                                     % for h in cmod.ShoppingHistory.objects.filter(user=request.user).order_by('date_viewed'):
 
-                                 <%
+                                         <%
 
-                                     if [h.product.name, h.product.id] not in request.last5:
-                                        request.last5.insert(0, [h.product.name, h.product.id])
-                                     else:
-                                        request.last5.insert(0, request.last5.pop(request.last5.index([h.product.name, h.product.id])))
+                                             if [h.product.name, h.product.id] not in request.last5:
+                                                request.last5.insert(0, [h.product.name, h.product.id])
+                                             else:
+                                                request.last5.insert(0, request.last5.pop(request.last5.index([h.product.name, h.product.id])))
 
-                                 %>
+                                         %>
 
-                             % endfor
+                                     % endfor
 
-                            % for x,y in request.last5[:5]:
-                                <div class="text-center">
-                                    <a href="/catalog/details/${ y }"><img style="width: 100px;" src=${ cmod.Product.objects.get(name=x).path } ></a>
-                                    <div style="margin-bottom: 25px;">
-                                        ${ x }
-                                    </div>
-                                </div>
-                             % endfor
-                        % except:
-                            % for h in cmod.ShoppingHistory.objects.filter(user=None).order_by('date_viewed'):
-                                <%
+                                    % for x,y in request.last5[:5]:
+                                        <div class="text-center">
+                                            <a href="/catalog/details/${ y }"><img style="width: 100px;" src=${ cmod.Product.objects.get(name=x).path } ></a>
+                                            <div style="margin-bottom: 25px;">
+                                                ${ x }
+                                            </div>
+                                        </div>
+                                     % endfor
+                                % except:
+                                    % for h in cmod.ShoppingHistory.objects.filter(user=None).order_by('date_viewed'):
+                                        <%
 
-                                     if [h.product.name, h.product.id] not in request.last5:
-                                        request.last5.insert(0, [h.product.name, h.product.id])
-                                     else:
-                                        request.last5.insert(0, request.last5.pop(request.last5.index([h.product.name, h.product.id])))
+                                             if [h.product.name, h.product.id] not in request.last5:
+                                                request.last5.insert(0, [h.product.name, h.product.id])
+                                             else:
+                                                request.last5.insert(0, request.last5.pop(request.last5.index([h.product.name, h.product.id])))
 
-                                 %>
+                                         %>
 
-                             % endfor
+                                     % endfor
 
-                            % for x,y in request.last5[:5]:
-                                <div class="text-center">
-                                    <a href="/catalog/details/${ y }"><img style="width: 100px;" src=${ cmod.Product.objects.get(name=x).path } ></a>
-                                    <div style="margin-bottom: 25px;">
-                                        ${ x }
-                                    </div>
-                                </div>
-                             % endfor
-                        % endtry
+                                    % for x,y in request.last5[:5]:
+                                        <div class="text-center">
+                                            <a href="/catalog/details/${ y }"><img style="width: 100px;" src=${ cmod.Product.objects.get(name=x).path } ></a>
+                                            <div style="margin-bottom: 25px;">
+                                                ${ x }
+                                            </div>
+                                        </div>
+                                     % endfor
+                                % endtry
+                            </div>
+                        </div>
                     </div>
                 </div>
              </section>
