@@ -10,9 +10,6 @@ def process_request(request):
     products = cmod.Product.objects.order_by('name').all()
     searchResult = request.GET.get('searchBox')
 
-    print('>>>>>>>', searchResult)
-    print('>>>>>>>', products)
-
     if searchResult:
         products = products.filter(name__icontains = searchResult)
         print('>>>>>>>>>>>',products)

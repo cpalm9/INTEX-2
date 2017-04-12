@@ -16,6 +16,7 @@ def process_request(request):
     if request.urlparams[0] != '':
         products = products.filter(category=request.urlparams[0])
 
+
     #render the template
     context = {
         'products': products,

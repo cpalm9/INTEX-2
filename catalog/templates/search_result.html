@@ -3,24 +3,44 @@
 <%! from catalog import models as cmod %>
 
 <%block name="content">
-    <div>
-        %for p in products:
-                <div class="Product">
-                    <div class="tile-image">
-                        <a href="/catalog/details/${ p.id }"><img src="/static/catalog/media/productImages/${p.name.replace(" ", "")}.png/"></a>
-                        <div class ="tile-text">
-                            <h3>${ p.name }</h3>
-                            <p>Category: ${ p.category }</p>
-                            <p>Sales Price: $${p.price}
-
-                            %if hasattr(p, 'serial_number'):
-                                <p>Serial Number: ${ p.serial_number if isinstance(p, cmod.UniqueProduct) or isinstance(p, cmod.RentalProduct) else '-'}</p>
-                            %endif
-                        </div>
-                    </div>
-                </div>
-            <hr>
-        %endfor
-    </div>
+    <div class="single-sec">
+	 <div class="container">
+		 <ol class="breadcrumb">
+			 <li><a href="/catalog/">Catalog</a></li>
+			 <li class="active">Search Results</li>
+		 </ol>
+         %if not products:
+              <h2 class="text-center">No search results found.</h2>
+         %else:
+            <h2 class="text-center" style="margin-bottom: 25px;">Search Results</h2>
+            <div class="row">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-6">
+                  <table class="table table-hover">
+                  <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Name</th>
+                        <th>Unit Price</th>
+                        <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    %for p in products:
+                        <tr class="tableStuff">
+                            <th scope="row"><img style="width: 80px;" src=${ p.path } class="img-responsive" alt=""></th>
+                            <td style="padding-top: 35px;">${ p.name }</td>
+                            <td style="padding-top: 35px;">$${ p.price }</td>
+                            <td><a href="/catalog/details/${ p.id }/" class="add-cart cart-check">Shop Now</a></td>
+                        </tr>
+                    %endfor
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-sm-3"></div>
+            </div>
+         %endif
+        </div>
+     </div>
 </%block>
 

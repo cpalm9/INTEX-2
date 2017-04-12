@@ -37,6 +37,13 @@
 					
              %endfor
 			</div>
+            <div class="search" id="searchBox" style="margin-left: 20px;">
+                <form method="GET" action="/catalog/search_result/">
+                        <input name="searchBox" type="text" placeholder="Search" required>
+                        <input class="btn btn-primary" id="searchButton" type="submit" value="Search">
+                </form>
+            </div>
+
 			<div class="rsidebar span_1_of_left">
 				 <section  class="sky-form" style="margin-bottom: 30px;">
 					 <div class="product_right">
