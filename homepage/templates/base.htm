@@ -293,21 +293,19 @@
             <div class="col-md-3 ftr-grid">
                 <h4>Your account</h4>
                 <ul>
-                    <li><a href="account.html">Your Account</a></li>
-                    <li><a href="#">Personal Information</a></li>
-                    <li><a href="#">Addresses</a></li>
-                    <li><a href="#">Discount</a></li>
-                    <li><a href="#">Track your order</a></li>
+                    <li><a href="/account/index">Your Account</a></li>
+                    <li><a href="/account/editAccount/${ request.user.id }">Personal Information</a></li>
+                    <li><a href="/account/editPassword/${ request.user.id }">Update your Password</a></li>
                 </ul>
             </div>
             <div class="col-md-3 ftr-grid">
                 <h4>Categories</h4>
                 <ul>
-                    <li><a href="#">Brass</a></li>
-                    <li><a href="#">Woodwind</a></li>
-                    <li><a href="#">Strings</a></li>
-                    <li><a href="#">Percussion</a></li>
-                    <li><a href="#">Accessories</a></li>
+                    <li><a href="/catalog/index/1">Brass</a></li>
+                    <li><a href="/catalog/index/2">Woodwind</a></li>
+                    <li><a href="/catalog/index/3">Strings</a></li>
+                    <li><a href="/catalog/index/5">Percussion</a></li>
+                    <li><a href="/catalog/index/4">Accessories</a></li>
                 </ul>
             </div>
             <div class="clearfix"></div>
