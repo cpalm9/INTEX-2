@@ -49,11 +49,16 @@
 							 <ul>
 								 <li>Selling Price:</li>
 								 <li class="active">$${ product.price }</li>
+								 % if user.is_authenticated:
 								 <div id="purchase_container">
-
                                     ${ form }
-
                                 </div>
+								% else:
+									<button type="button" class="btn btn-primary disabled">Add To Cart</button>
+									<p>&nbsp</p>
+									<p><b>(Please log in or create an account to start shopping!)</b></p>
+								% endif
+
 							 </ul>
 						 </div>
 						 <div class="clearfix"></div>
