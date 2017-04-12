@@ -42,7 +42,7 @@
 
             </td>
             <td>$${ p.price }</td>
-            <td>${ p.serial_number if isinstance(p, cmod.UniqueProduct) or isinstance(p, cmod.RentalProduct) else '-'}</td>
+            <td>${ p.serial_number if isinstance(p, cmod.UniqueProduct) else '-'}</td>
             <td>
                 <a href="/manager/product/${ p.id }/">Edit</a>
                 |
